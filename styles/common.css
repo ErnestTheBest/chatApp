@@ -1,0 +1,26 @@
+.common-form {
+    width: 165px;
+    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 5px
+}
+
+.up-down-background-gradient {
+    background: linear-gradient(#ffffff ,#e1e1e1);
+}
+
+.border {
+    border: 2px solid;
+    border-image: linear-gradient(#f6b73c 0%, #4d9f0c 100%) 30;
+    border-width: 2px;
+}
+
+.common-form button {
+    margin: 10px;
+    display: block;
+}
