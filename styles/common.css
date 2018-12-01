@@ -2,6 +2,7 @@ body {
     font-family: helvetica;
 }
 
+
 form {
     width: 320px;
     padding-top: 20px;
@@ -46,3 +47,26 @@ form, input {
     border-width: 4px;
     background: linear-gradient(#ffffff, #e1e1e1);
 }
+
+.error {
+    border-image: linear-gradient(#df2316 0%, #ff3533 100%) 4;
+    background: linear-gradient(#fd4b59, #ff6b6f);
+}
+
+.error-message {
+    color: white;
+    background: linear-gradient(#f95062, #df251b);
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+.error-message p {
+    position: relative;
+    transform: translate(0,-30%);
+    text-align: center;
+}
+
