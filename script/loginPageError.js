@@ -23,7 +23,7 @@ function notValid() {
     inputs.forEach(e => {
         if (!e.value) {
             e.classList.add('error');
-        } else { 
+        } else {
             e.classList.remove('error');
         }
     });
@@ -33,22 +33,3 @@ function validateFieldsNotEmpty() {
     inputs.every(e => e.value) ? valid() : notValid();
     errorMessage.style.display = 'block';
 }
-
-// function validateFieldsNotEmpty() {
-//     let login = loginField.value;
-//     let password = passwordField.value;
-
-//     if (!login || !password) {
-//         if (!login) {
-//             loginField.classList.add('error');
-//         }
-//         if (!password) {
-//             passwordField.classList.add('error');
-//         }
-//     } else {
-//         document.querySelector('.error-message p').textContent = 'Good boy';
-//         errorMessage.style.background = '#82df1b';
-//     }
-
-//     errorMessage.style.display = 'block';
-// }

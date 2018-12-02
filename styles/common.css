@@ -58,7 +58,6 @@ form, input {
     color: white;
     background: linear-gradient(#f95062, #df251b);
     width: 400px;
-    height: 40px;
     margin: 10px;
     position: absolute;
     right: 0%;
@@ -67,8 +66,6 @@ form, input {
 }
 
 .error-message p {
-    position: relative;
-    transform: translate(0,-30%);
     text-align: center;
 }
 
