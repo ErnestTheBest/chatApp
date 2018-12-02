@@ -1,31 +1,54 @@
-let loginField = document.getElementById('username');
-let passwordField = document.getElementById('password');
 let errorMessage = document.getElementById('error-message');
+let errorMessageText = document.querySelector('.error-message p');
 let signInButton = document.getElementById('sign-in');
+let inputs = Array.from(document.querySelectorAll('form input'));
 
-signInButton.addEventListener('click', validate);
+signInButton.addEventListener('click', validateFieldsNotEmpty);
 
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
-        validate();
+        validateFieldsNotEmpty();
     }
 });
 
-function validate() {
-    let login = loginField.value;
-    let password = passwordField.value;
+function valid() {
+    errorMessageText.textContent = 'Good boy';
+    errorMessage.style.background = '#82df1b';
+    inputs.forEach(e => e.classList.remove('error'));
+}
 
-    if (!login || !password) {
-        if (!login) {
-            loginField.classList.add('error');
+function notValid() {
+    errorMessageText.textContent = 'Mandatory values must be entered';
+    errorMessage.style.background = 'linear-gradient(#f95062, #df251b)';
+    inputs.forEach(e => {
+        if (!e.value) {
+            e.classList.add('error');
+        } else { 
+            e.classList.remove('error');
         }
-        if (!password) {
-            passwordField.classList.add('error');
-        }
-    } else {
-        document.querySelector('.error-message p').textContent = 'Good boy';
-        errorMessage.style.background = '#82df1b';
-    }
+    });
+}
 
+function validateFieldsNotEmpty() {
+    inputs.every(e => e.value) ? valid() : notValid();
     errorMessage.style.display = 'block';
 }
+
+// function validateFieldsNotEmpty() {
+//     let login = loginField.value;
+//     let password = passwordField.value;
+
+//     if (!login || !password) {
+//         if (!login) {
+//             loginField.classList.add('error');
+//         }
+//         if (!password) {
+//             passwordField.classList.add('error');
+//         }
+//     } else {
+//         document.querySelector('.error-message p').textContent = 'Good boy';
+//         errorMessage.style.background = '#82df1b';
+//     }
+
+//     errorMessage.style.display = 'block';
+// }

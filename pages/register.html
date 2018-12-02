@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+
+<body>
+    <form action="#">
+        <div class="input-field">
+            <label for="username">Username</label>
+            <input id="username" type="text">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" type="password">
+        </div>
+        <div>
+            <label for="confirm-password">Confirm password</label>
+            <input id="confirm-password" type="password">
+        </div>
+        <div>
+            <button id="sign-in">Sign In</button>
+        </div>
+    </form>
+    <div class="error-message" id="error-message">
+        <p>Mandatory values must be entered</p>
+    </div>
+     <!-- <img style="margin-top: 15px" src="../task/error.png" width="800" height="450"> -->
+     <script src="../script/loginPageError.js"></script>
+</body>
+
+</html>
