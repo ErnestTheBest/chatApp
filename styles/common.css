@@ -1,11 +1,12 @@
 body {
     font-family: helvetica;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
 form {
     width: 320px;
+    box-sizing: border-box;
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -17,15 +18,16 @@ form {
 }
 
 form button {
-    margin: 10px;
+    margin: 10px auto;
     display: block;
-    position: relative;
-    width: 30%;
-    left: 50%;
-    transform: translate(-50%)
+}
+
+form label {
+    display: block;
 }
 
 button {
+    font-size: 2rem;
     color: white;
     background: linear-gradient(#67d7fc, #1763c9);
     outline: none;
@@ -34,14 +36,15 @@ button {
     border-width: 4px;
 }
 
-input {
+input[type=text], input[type=password] {
+    font-size: 2rem;
     width: 100%;
     margin-bottom: 5px;
     outline: none;
     border-image: linear-gradient(#e1e1e1,#ffffff) 1;
 }
 
-form, input {
+form, input[type=text], input[type=password] {
     box-shadow: 1px 1px #c6c7c6;
     border: solid;
     border-image: linear-gradient(#ececec 0%, #f4f4f4 100%) 4;
