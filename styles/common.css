@@ -5,12 +5,23 @@ body {
 
 
 form {
-    width: 320px;
+    text-align: left;
     box-sizing: border-box;
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 0px;
+}
+
+form + a {
+    font-size: 75%;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+#center {
+    width: 320px;
+    text-align: center;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -52,11 +63,13 @@ form, input[type=text], input[type=password] {
     background: linear-gradient(#ffffff, #e1e1e1);
 }
 
-form a {
-    text-align: center;
-    margin: 0 auto;
-    font-size: 10px;
-    display: block;
+a {
+    color: #1b73f1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 input.error {
@@ -77,13 +90,13 @@ input.error {
 }
 
 @media screen and (max-width: 700px) {
-    form {
+    #center {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    form {
+    #center {
         width: 90%;
     }
 
