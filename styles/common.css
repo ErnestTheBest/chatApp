@@ -52,24 +52,28 @@ form, input[type=text], input[type=password] {
     background: linear-gradient(#ffffff, #e1e1e1);
 }
 
-.error {
+form a {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 10px;
+    display: block;
+}
+
+input.error {
     border-image: linear-gradient(#df2316 0%, #ff3533 100%) 4;
     background: linear-gradient(#fd4b59, #ff6b6f);
 }
 
 .error-message {
     color: white;
+    text-align: center;
     background: linear-gradient(#f95062, #df251b);
     width: 400px;
     margin: 10px;
+    padding: 15px;
     position: absolute;
     right: 0%;
     top: 0%;
-    display: none;;
-}
-
-.error-message p {
-    text-align: center;
 }
 
 @media screen and (max-width: 700px) {

@@ -5,23 +5,18 @@ let passwordOne = document.getElementById('password');
 let passwordTwo = document.getElementById('confirm-password');
 let inputs = Array.from(document.querySelectorAll('form input'));
 
-signInButton.addEventListener('click', register);
-
-document.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13) {
-        register();
-    }
+document.addEventListener('submit', function (event) {
+    event.preventDefault();
+    register();
 });
 
 function valid() {
-    errorMessageText.textContent = 'Good boy';
-    errorMessage.style.background = '#82df1b';
+    createAndDisplayPopup('Good boy', '#82df1b');
     inputs.forEach(e => e.classList.remove('error'));
 }
 
 function notValid() {
-    errorMessageText.textContent = 'Mandatory values must be entered';
-    errorMessage.style.background = 'linear-gradient(#f95062, #df251b)';
+    createAndDisplayPopup('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)')
     inputs.forEach(e => {
         if (!e.value) {
             e.classList.add('error');
@@ -32,8 +27,7 @@ function notValid() {
 }
 
 function passwordDoNotMatch() {
-    errorMessageText.textContent = 'Passwords do not match';
-    errorMessage.style.background = 'linear-gradient(#f95062, #df251b)';
+    createAndDisplayPopup('Passwords do not match', 'linear-gradient(#f95062, #df251b)');
     passwordOne.classList.add('error');
     passwordTwo.classList.add('error');
 }
@@ -41,8 +35,25 @@ function passwordDoNotMatch() {
 function validateFieldsNotEmpty() {
     let areValid = inputs.every(e => e.value);
     areValid ? valid() : notValid();
-    errorMessage.style.display = 'block';
     return areValid;
+}
+
+function createAndDisplayPopup(text, background) {
+    let element;
+
+    if (document.querySelector('.error-message')) {
+        element = document.querySelector('.error-message');
+    } else {
+        element = document.createElement('div');
+        document.body.appendChild(element);
+    }
+
+    element.textContent = text;
+    element.style.background = background;
+    element.classList.add('error-message');
+    element.addEventListener('click', function (event) {
+        document.body.removeChild(document.querySelector('.error-message'));
+    });
 }
 
 function arePasswordsEqual() {
