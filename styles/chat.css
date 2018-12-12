@@ -9,22 +9,77 @@ body {
     min-height: 100vh;
 }
 
-.contacts {
+.contacts-box {
+    box-sizing: border-box;
+    padding: 15px;
     background: linear-gradient(#ffffff, #e1e1e1);
     flex: 0 0 280px;
 }
 
 .search-bar {
+    justify-content: flex-end;
     display: flex;
-    padding: 5px;
+}
+
+.search-bar div {
+}
+
+.search-bar .search-button {
+    margin-left: 20px;
+}
+
+.search-bar .search-input {
+
 }
 
 .search-bar input {
+    height: 60px;
 }
 
 .search-bar button {
     box-sizing: border-box;
+    width: 60px;
+    height: 60px;
     font-size: 2rem;
+}
+
+.contacts {
+    margin-top: 20px;
+}
+
+.contacts ul {
+    padding: 0;
+}
+
+.contacts li {
+    list-style-type: none;
+    border-bottom: 2px solid;
+    border-color: #e0e0e0;
+    padding: 10px 5px;
+}
+
+.status-away {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ffce00;
+    border-radius: 50%
+}
+
+.status-online {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #3efb3a;
+    border-radius: 50%
+}
+
+.status-offline {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #7f807f;
+    border-radius: 50%;
 }
 
 .chat {

@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: helvetica;
     font-size: 16px;
@@ -6,7 +10,6 @@ body {
 
 form {
     text-align: left;
-    box-sizing: border-box;
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -38,7 +41,6 @@ form label {
 }
 
 button {
-    box-sizing: border-box;
     font-size: 2rem;
     color: white;
     background: linear-gradient(#67d7fc, #1763c9);
@@ -49,7 +51,6 @@ button {
 }
 
 input[type=text], input[type=password] {
-    box-sizing: border-box;
     font-size: 2rem;
     width: 100%;
     margin-bottom: 5px;
