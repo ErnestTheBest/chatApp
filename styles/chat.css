@@ -28,6 +28,16 @@ body {
     margin-left: 20px;
 }
 
+.search-button span {
+    display: inline-block;
+        transform: rotate(45deg);
+    }
+
+.search-button span span {
+    display: inline-block;
+    transform: rotate(0deg) translateX(-3px) translateY(-4px);
+}
+
 .search-bar .search-input {
 
 }
