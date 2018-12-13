@@ -138,6 +138,11 @@ body {
     max-width: 55%;
 }
 
+.message-info {
+    color: #9f9f9f;
+    font-size: 12px;
+}
+
 .not-my-message {
     float:left;
 }
