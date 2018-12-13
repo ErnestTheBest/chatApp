@@ -10,18 +10,18 @@ body {
 }
 
 .contacts-box {
-    box-sizing: border-box;
+    box-shadow: 1px 0 #c6c7c6;
     padding: 15px;
     background: linear-gradient(#ffffff, #e1e1e1);
+    border-right: solid;
+    border-width: 4px;
+    border-image: linear-gradient(#e1e1e1, #ffffff) 1;
     flex: 0 0 280px;
 }
 
 .search-bar {
     justify-content: flex-end;
     display: flex;
-}
-
-.search-bar div {
 }
 
 .search-bar .search-button {
@@ -94,20 +94,43 @@ body {
 
 .chat {
     display: flex;
-    background: gray;
     flex-direction: column;
     flex: 1;
     align-items: flex-end;
 }
 
 .content-window {
-    background: red;
     flex-grow: 1;
     min-width: 100%;
 }
 
 .message-window {
-    background: orange;
+    justify-content: flex-end;
+    display: flex;
+    padding: 20px;
     min-height: 100px;
     min-width: 100%;
+}
+
+.message-input {
+    width: 100%;
+    display: inline;
+}
+
+.message-button {
+    margin-left: 20px;
+    display: inline;
+}
+
+.message-window input, .message-window button {
+    height: 60px;
+}
+
+.content-window {
+    padding: 0 20px 0 40px;
+}
+
+.content-window>div {
+    position: relative;
+    bottom: 0;
 }
