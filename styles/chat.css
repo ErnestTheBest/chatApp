@@ -127,10 +127,52 @@ body {
 }
 
 .content-window {
-    padding: 0 20px 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 20px 0 20px;
 }
 
 .content-window>div {
-    position: relative;
-    bottom: 0;
+    margin-top: 5px;
+    max-width: 55%;
+}
+
+.not-my-message {
+    float:left;
+}
+.not-my-message .message{
+    float:left;
+    background: linear-gradient(#e1e1e1, #ffffff);
+}
+
+.my-message {
+    margin-left: auto;
+}
+
+.my-message .message{
+    
+    background: linear-gradient(#6aa9f0, #ffffff);
+}
+
+.message {
+    border-radius: 20px;
+    box-shadow: 1px 1px #c6c7c6;
+    padding: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    .contacts-box {
+        display: none;
+    }
+
+    .content-window>div {
+        max-width: 65%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .content-window>div {
+        max-width: 80%;
+    }
 }
