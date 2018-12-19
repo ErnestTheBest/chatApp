@@ -1,6 +1,4 @@
-body {
-    margin: 0;
-}
+@import 'common.css';
 
 .container {
     display: flex;
@@ -30,12 +28,12 @@ body {
 
 .search-button span {
     display: inline-block;
-        transform: rotate(45deg);
+        transform: rotate(45deg) translateX(-23px) translateY(8px);
     }
 
 .search-button span span {
     display: inline-block;
-    transform: rotate(0deg) translateX(-3px) translateY(-4px);
+    transform: translateX(20px) translateY(-60px);
 }
 
 .search-bar .search-input {
@@ -68,44 +66,38 @@ body {
     padding: 10px 5px;
 }
 
-.status-away {
+span.status::before {
+    content: "";
     display: inline-block;
+    padding: 1px;
     width: 10px;
     height: 10px;
-    background: #ffce00;
-    border-radius: 50%
-}
-
-.status-online {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #3efb3a;
-    border-radius: 50%
-}
-
-.status-offline {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #7f807f;
+    background: black;
     border-radius: 50%;
 }
 
+span.status-away::before {
+    background: #ffce00;
+}
+
+span.status-online::before {
+    background: #3efb3a;
+}
+
+span.status-offline::before {
+    background: #7f807f;
+}
+
 .chat {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-end;
+
 }
 
 .content-window {
-    flex-grow: 1;
-    min-width: 100%;
+    height: calc(100vh - 105px);
 }
 
 .message-window {
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     display: flex;
     padding: 20px;
     min-height: 100px;
@@ -131,31 +123,32 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 20px 0 20px;
+    overflow-y: scroll;
 }
 
 .content-window>div {
     margin-top: 5px;
-    max-width: 55%;
+    max-width: 65%;
 }
 
 .message-info {
     color: #9f9f9f;
-    font-size: 12px;
+    font-size: 67%;
 }
 
-.not-my-message {
+.incoming {
     float:left;
 }
-.not-my-message .message{
+.incoming .message{
     float:left;
     background: linear-gradient(#e1e1e1, #ffffff);
 }
 
-.my-message {
+.outgoing {
     margin-left: auto;
 }
 
-.my-message .message{
+.outgoing .message{
     
     background: linear-gradient(#6aa9f0, #ffffff);
 }
@@ -172,7 +165,7 @@ body {
     }
 
     .content-window>div {
-        max-width: 65%;
+        
     }
 }
 

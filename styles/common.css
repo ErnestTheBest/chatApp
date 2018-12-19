@@ -2,9 +2,11 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: helvetica;
-    font-size: 16px;
+    font-size: 24px;
+        margin: 0;
+        padding: 0;
 }
 
 
@@ -48,6 +50,7 @@ button {
     border: solid;
     border-image: linear-gradient(#1ac7fb, #1b73f1) 4;
     border-width: 4px;
+    cursor: pointer;
 }
 
 input[type=text], input[type=password] {
@@ -56,6 +59,7 @@ input[type=text], input[type=password] {
     margin-bottom: 5px;
     outline: none;
     border-image: linear-gradient(#e1e1e1,#ffffff) 1;
+    padding: 10px 0;
 }
 
 form, input[type=text], input[type=password] {
@@ -64,7 +68,7 @@ form, input[type=text], input[type=password] {
     border-image: linear-gradient(#ececec 0%, #f4f4f4 100%) 4;
     border-width: 4px;
     background: linear-gradient(#ffffff, #e1e1e1);
-}
+    }
 
 a {
     color: #1b73f1;

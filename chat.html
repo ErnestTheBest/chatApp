@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
-    <link rel="stylesheet" href="styles/common.css">
+    <!-- <link rel="stylesheet" href="styles/common.css"> -->
     <link rel="stylesheet" href="styles/chat.css">
 </head>
 
@@ -24,16 +24,14 @@
             <div class="contacts">
                 <ul>
                     <li>
-                        <div class="status-away"></div>
-                        <span>Andrew</span>
+                        <!-- <div class="status-away"></div> -->
+                        <span class="status status-away">Andrew</span>
                     </li>
                     <li>
-                        <span class="status-online"></span>
-                        <span>Klaus</span>
+                        <span class="status status-online">Klaus</span>
                     </li>
                     <li>
-                        <div class="status-offline"></div>
-                        <span>Bender</span>
+                        <span class="status status-offline">Bender</span>
                     </li>
                 </ul>
             </div>
@@ -41,10 +39,9 @@
         <div class="chat">
             <div class="content-window">
                 <!-- <img src="task/chat.png" width="600"> -->
-                <div class="not-my-message">
+                <div class="incoming">
                     <div class="message-info">
-                        <div class="status-away"></div>
-                        <span>Andrew</span>,
+                        <span class="status status-away">Andrew</span>,
                         <time>14:05:17</time>
                     </div>
                     <div class="message">
@@ -57,10 +54,9 @@
                         PageMaker including versions of Lorem Ipsum.
                     </div>
                 </div>
-                <div class="my-message">
+                <div class="outgoing">
                     <div class="message-info">
-                        <div class="status-online"></div>
-                        <span>The Dude</span>,
+                        <span class="status status-online">The Dude</span>,
                         <time>14:05:47</time>
                     </div>
                     <div class="message">
@@ -75,7 +71,7 @@
                 <div class="message-button"><button>Send</button></div>
             </div>
         </div>
+        
     </div>
 </body>
-
 </html>
