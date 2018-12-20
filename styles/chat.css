@@ -2,6 +2,7 @@
 @import 'contacts.css';
 @import 'status.css';
 @import 'messages.css';
+@import 'menu.css';
 
 .container {
     display: flex;
@@ -10,14 +11,23 @@
     min-height: 100vh;
 }
 
-.contacts-box {
+.sidebar {
     box-shadow: 1px 0 #c6c7c6;
-    padding: 15px;
     background: linear-gradient(#ffffff, #e1e1e1);
     border-right: solid;
     border-width: 4px;
     border-image: linear-gradient(#e1e1e1, #ffffff) 1;
     flex: 0 0 280px;
+}
+
+.contacts-window {
+    padding: 15px;
+}
+
+menu {
+    height: 50px;
+    background: lightgray;
+    margin: 0;
 }
 
 .content-window {
@@ -54,7 +64,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .contacts-box {
+    .sidebar {
         display: none;
     }
 
