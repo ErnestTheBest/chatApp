@@ -1,4 +1,7 @@
 @import 'common.css';
+@import 'contacts.css';
+@import 'status.css';
+@import 'messages.css';
 
 .container {
     display: flex;
@@ -17,88 +20,11 @@
     flex: 0 0 280px;
 }
 
-.search-bar {
-    justify-content: flex-end;
-    display: flex;
-}
-
-.search-bar .search-button {
-    margin-left: 20px;
-}
-
-.search-button span {
-    display: inline-block;
-        transform: rotate(45deg) translateX(-23px) translateY(8px);
-    }
-
-.search-button span span {
-    display: inline-block;
-    transform: translateX(20px) translateY(-60px);
-}
-
-.search-bar .search-input {
-
-}
-
-.search-bar input {
-    height: 60px;
-}
-
-.search-bar button {
-    box-sizing: border-box;
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
-}
-
-.contacts {
-    margin-top: 20px;
-}
-
-.contacts ul {
-    padding: 0;
-}
-
-.contacts li {
-    list-style-type: none;
-    border-bottom: 2px solid;
-    border-color: #e0e0e0;
-    padding: 10px 5px;
-}
-
-span.status::before {
-    transform: translateX(-15%) translateY(-10%);
-    content: "";
-    display: inline-block;
-    padding: 1px;
-    width: 10px;
-    height: 10px;
-    background: black;
-    border-radius: 50%;
-}
-
-span.status-away::before {
-    background: #ffce00;
-}
-
-span.status-online::before {
-    background: #3efb3a;
-}
-
-span.status-offline::before {
-    background: #7f807f;
-}
-
-.chat {
-
-}
-
 .content-window {
     height: calc(100vh - 105px);
 }
 
 .message-window {
-    /* justify-content: flex-end; */
     display: flex;
     padding: 20px;
     min-height: 100px;
@@ -127,51 +53,18 @@ span.status-offline::before {
     overflow-y: scroll;
 }
 
-.content-window>div {
-    margin-top: 5px;
-    max-width: 65%;
-}
-
-.message-info {
-    color: #9f9f9f;
-    font-size: 67%;
-}
-
-.incoming {
-    float:left;
-}
-.incoming .message{
-    float:left;
-    background: linear-gradient(#e1e1e1, #ffffff);
-}
-
-.outgoing {
-    margin-left: auto;
-}
-
-.outgoing .message{
-    
-    background: linear-gradient(#6aa9f0, #ffffff);
-}
-
-.message {
-    border-radius: 20px;
-    box-shadow: 1px 1px #c6c7c6;
-    padding: 15px;
-}
-
 @media screen and (max-width: 800px) {
     .contacts-box {
         display: none;
     }
 
     .content-window>div {
-
+        max-width: 80%;
     }
 }
 
 @media screen and (max-width: 650px) {
     .content-window>div {
-        max-width: 80%;
+        max-width: 90%;
     }
 }

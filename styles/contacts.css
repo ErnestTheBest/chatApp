@@ -1,0 +1,48 @@
+.search-bar {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.search-bar .search-button {
+    margin-left: 20px;
+}
+
+.search-button span {
+    display: inline-block;
+        transform: rotate(45deg) translateX(-23px) translateY(8px);
+    }
+
+.search-button span span {
+    display: inline-block;
+    transform: translateX(20px) translateY(-60px);
+}
+
+.search-bar .search-input {
+
+}
+
+.search-bar input {
+    height: 60px;
+}
+
+.search-bar button {
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+}
+
+.contacts {
+    margin-top: 20px;
+}
+
+.contacts ul {
+    padding: 0;
+}
+
+.contacts li {
+    list-style-type: none;
+    border-bottom: 2px solid;
+    border-color: #e0e0e0;
+    padding: 10px 5px;
+}

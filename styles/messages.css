@@ -1,0 +1,27 @@
+.content-window>div {
+    margin-top: 5px;
+    max-width: 75%;
+}
+
+.message-info {
+    color: #9f9f9f;
+    font-size: 67%;
+}
+
+.incoming .message{
+    background: linear-gradient(#e1e1e1, #ffffff);
+}
+
+.outgoing {
+    margin-left: auto;
+}
+
+.outgoing .message{
+    background: linear-gradient(#6aa9f0, #ffffff);
+}
+
+.message {
+    border-radius: 20px;
+    box-shadow: 1px 1px #c6c7c6;
+    padding: 15px;
+}
