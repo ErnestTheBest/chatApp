@@ -19,6 +19,7 @@
     border-right: solid;
     border-width: 4px;
     border-image: linear-gradient(#e1e1e1, #ffffff) 1;
+    transition: border-color 0.6s linear;
 }
 
 .chat {
@@ -76,7 +77,7 @@ menu {
     overflow-y: scroll;
 }
 
-.menu-button{
+.menu-button {
     display: none;
     height: 40px;
     position: absolute;
@@ -85,12 +86,18 @@ menu {
 }
 
 @media screen and (max-width: 800px) {
+    .menu-button {
+        display: block;
+    }
+
     .sidebar {
-        display: none;
+        transform: translateX(-280px);
     }
 
     .chat {
-        margin-left: 0;
+        width: 100%;
+        margin: 0;
+        /* Why elements in this shit stays with 280px margin from left? */
     }
 
     .content-window>div {
