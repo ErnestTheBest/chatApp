@@ -3,21 +3,27 @@
 @import 'status.css';
 @import 'messages.css';
 @import 'menu.css';
+@import 'context.css';
 
 .container {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar {
-    box-shadow: 1px 0 #c6c7c6;
+    width: 280px;
+    height: 100%;
+    float: left;
     background: linear-gradient(#ffffff, #e1e1e1);
+    box-shadow: 1px 0 #c6c7c6;
     border-right: solid;
     border-width: 4px;
     border-image: linear-gradient(#e1e1e1, #ffffff) 1;
-    flex: 0 0 280px;
+}
+
+.chat {
+    height: 100%;
+    margin-left: 280px;
 }
 
 .contacts-window {
@@ -30,8 +36,15 @@ menu {
     margin: 0;
 }
 
+.context-window {
+    height: 50px;
+    text-align: center;
+    border-bottom: solid lightgray;
+    border-width: 4px;
+}
+
 .content-window {
-    height: calc(100vh - 105px);
+    height: calc(100% - 50px - 105px);
 }
 
 .message-window {
@@ -63,9 +76,21 @@ menu {
     overflow-y: scroll;
 }
 
+.menu-button{
+    display: none;
+    height: 40px;
+    position: absolute;
+    margin: 5px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 800px) {
     .sidebar {
         display: none;
+    }
+
+    .chat {
+        margin-left: 0;
     }
 
     .content-window>div {

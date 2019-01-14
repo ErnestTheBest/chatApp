@@ -13,32 +13,41 @@
 <body>
     <div class="container">
         <div class="sidebar">
-                <menu></menu>
+            <menu></menu>
             <div class="contacts-window">
-                    <div class="search-bar">
-                            <div class="search-input">
-                                <input type="text">
-                            </div>
-                            <div class="search-button">
-                                <button><span>O<span>-</span></span></button>
-                            </div>
-                        </div>
-                        <div class="contacts">
-                            <ul>
-                                <li>
-                                    <span class="status status-away">Andrew</span>
-                                </li>
-                                <li>
-                                    <span class="status status-online">Klaus</span>
-                                </li>
-                                <li>
-                                    <span class="status status-offline">Bender</span>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="search-bar">
+                    <div class="search-input">
+                        <input type="text">
+                    </div>
+                    <div class="search-button">
+                        <button><span>O<span>-</span></span></button>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <ul>
+                        <li>
+                            <span class="status status-away">Andrew</span>
+                        </li>
+                        <li>
+                            <span class="status status-online">Klaus</span>
+                        </li>
+                        <li>
+                            <span class="status status-offline">Bender</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="chat">
+            <header>
+                <div class="menu-button">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+                <div class="context-window">
+                    <span class="status status-away">Andrew</span></div>
+            </header>
             <div class="content-window">
                 <!-- <img src="task/chat.png" width="600"> -->
                 <div class="incoming">
@@ -73,7 +82,10 @@
                 <div class="message-button"><button>Send</button></div>
             </div>
         </div>
-        
+
     </div>
+
+    <script src="script/chat.js"></script>
 </body>
+
 </html>

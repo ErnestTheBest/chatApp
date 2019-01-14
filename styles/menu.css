@@ -1,1 +1,19 @@
-/* Wtf do i do here? */
+.bar-1, .bar-2, .bar-3 {
+    width: 35px;
+    height: 5px;
+    background-color: #c6c6c6;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .toggle .bar-1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .toggle .bar-2 {opacity: 0;}
+  
+  .toggle .bar-3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }

@@ -9,7 +9,7 @@
 
 .search-button span {
     display: inline-block;
-        transform: rotate(45deg) translateX(-23px) translateY(8px);
+    transform: rotate(45deg) translateX(-23px) translateY(8px);
     }
 
 .search-button span span {
@@ -26,7 +26,6 @@
 }
 
 .search-bar button {
-    box-sizing: border-box;
     width: 60px;
     height: 60px;
     font-size: 2rem;
