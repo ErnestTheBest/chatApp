@@ -44,4 +44,10 @@
     border-bottom: 2px solid;
     border-color: #e0e0e0;
     padding: 10px 5px;
+    cursor: pointer;
+    transition: border-color 0.6s linear;
+}
+
+.contacts li:hover {
+    border-color: #3f9ce2;
 }
