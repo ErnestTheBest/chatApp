@@ -8,6 +8,8 @@
 .container {
     height: 100vh;
     overflow: hidden;
+    width: 100vw;
+    transition: transform 0.5s;
 }
 
 .sidebar {
@@ -86,20 +88,19 @@ menu {
 }
 
 @media screen and (max-width: 800px) {
-    .menu-button {
-        display: block;
-    }
-
-    .sidebar {
+    .container {
+        width: calc(100vw + 280px);
         transform: translateX(-280px);
     }
 
-    .chat {
-        width: 100%;
-        margin: 0;
-        /* Why elements in this shit stays with 280px margin from left? */
+    .menu-open {
+        transform: translateX(0);
     }
 
+    .menu-button {
+        display: block;
+    }
+       
     .content-window>div {
         max-width: 80%;
     }

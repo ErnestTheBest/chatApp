@@ -35,6 +35,22 @@
     margin-top: 20px;
 }
 
+.active-contact {
+    background: lightgray;        
+}
+
+.new-message {
+    height: 1rem;
+    width: 1rem;
+    background: red;
+    border: solid 2px red;
+    float: right;
+    border-radius: 15%;
+}
+
+.new-message span { 
+}
+
 .contacts ul {
     padding: 0;
 }
