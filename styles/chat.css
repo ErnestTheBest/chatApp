@@ -52,7 +52,7 @@ menu {
 
 .message-window {
     display: flex;
-    padding: 20px;
+    padding: 1rem;
     min-height: 100px;
     min-width: 100%;
 }
@@ -72,11 +72,10 @@ menu {
 }
 
 .content-window {
+    padding: 0.5rem;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 20px 0 20px;
     overflow-y: scroll;
+    flex-direction: column;
 }
 
 .menu-button {

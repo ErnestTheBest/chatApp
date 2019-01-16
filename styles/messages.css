@@ -1,3 +1,7 @@
+.content-window>div:first-child {
+    margin-top: auto;
+}
+
 .content-window>div {
     margin-top: 5px;
     max-width: 75%;
