@@ -4,6 +4,7 @@
 @import 'messages.css';
 @import 'menu.css';
 @import 'context.css';
+@import 'chatmenu.css';
 
 .container {
     height: 100vh;
@@ -31,12 +32,6 @@
 
 .contacts-window {
     padding: 15px;
-}
-
-menu {
-    height: 50px;
-    background: lightgray;
-    margin: 0;
 }
 
 .context-window {

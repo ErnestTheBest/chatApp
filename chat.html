@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
-    <!-- <link rel="stylesheet" href="styles/common.css"> -->
     <link rel="stylesheet" href="styles/chat.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
     <div class="container">
         <div class="sidebar">
-            <menu></menu>
+            <menu>
+                <a id="add-contact"><i class="material-icons w3-large">person_add</i></a>
+                <a id="remove-contact"><i class="material-icons w3-large">person_add_disabled</i></a>
+                <a id="logout"><i class="material-icons w3-large">exit_to_app</i></a>
+                <a href="profile.html" id="profile"><i class="material-icons w3-large">person_outline</i></a>
+            </menu>
             <div class="contacts-window">
                 <div class="search-bar">
                     <div class="search-input">
@@ -35,10 +40,10 @@
                             <span class="status status-offline">Bender</span>
                         </li>
                         <li class="active-contact">
-                            <span class="status status-online">Andrew</span>
+                            <span class="status status-away">Andrew</span>
                         </li>
                         <li>
-                            <span class="status status-away">Samanta<span class="new-message"></span></span>
+                            <span class="status status-online">Samanta<span class="new-message"></span></span>
                         </li>
                     </ul>
                 </div>
@@ -63,14 +68,14 @@
                     <div class="message">
                         Hey man! How are you?
                     </div>
-                </div> 
+                </div>
                 <div class="incoming">
                     <div class="message-info">
                         <span class="status status-away">Andrew</span>,
                         <time>14:05:17</time>
                     </div>
                     <div class="message">
-                        Hey. I'm fine. Wanna hear a cool
+                        Hey. I'm fine. Wanna hear a cool story?
                     </div>
                 </div>
                 <div class="outgoing">

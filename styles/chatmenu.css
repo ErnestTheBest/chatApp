@@ -1,0 +1,21 @@
+menu {
+    padding: 0.2rem;;
+    text-align: left;
+    height: 50px;
+    background: lightgray;
+    margin: 0;
+}
+
+menu .material-icons {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+menu a {
+    color: white;
+    width: 1.5rem;
+    display: inline;
+}
+
+#logout, #profile {
+    float: right;
+}
