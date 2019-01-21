@@ -14,10 +14,10 @@
     <div class="container">
         <div class="sidebar">
             <menu>
-                <a id="add-contact"><i class="material-icons w3-large">person_add</i></a>
-                <a id="remove-contact"><i class="material-icons w3-large">person_add_disabled</i></a>
-                <a id="logout"><i class="material-icons w3-large">exit_to_app</i></a>
-                <a href="profile.html" id="profile"><i class="material-icons w3-large">person_outline</i></a>
+                <!-- <a id="add-contact"><i class="material-icons w3-large">person_add</i></a>
+                <a id="remove-contact"><i class="material-icons w3-large">person_add_disabled</i></a> -->
+                <a title="Logout" id="logout"><i class="material-icons w3-large">exit_to_app</i></a>
+                <a title="Profile" href="profile.html" id="profile"><i class="material-icons w3-large">person_outline</i></a>
             </menu>
             <div class="contacts-window">
                 <div class="search-bar">
@@ -30,19 +30,25 @@
                 </div>
                 <div class="contacts">
                     <ul>
-                        <li>
+                        <li class="favorite">
+                            <i title="Remove favorite" class="material-icons w3-large">person_add_disabled</i>
                             <span class="status status-away">Nick</span>
                         </li>
                         <li>
-                            <span class="status status-online">Klaus<span class="new-message"><span></span></span></span>
+                            <i title="Remove favorite" class="material-icons w3-large">person_add_disabled</i>
+                            <span class="status status-online">Klaus<span class="new-message"></span></span>
+
                         </li>
                         <li>
+                            <i title="Remove favorite" class="material-icons w3-large">person_add_disabled</i>
                             <span class="status status-offline">Bender</span>
                         </li>
                         <li class="active-contact">
+                            <i title="Remove favorite" class="material-icons w3-large">person_add_disabled</i>
                             <span class="status status-away">Andrew</span>
                         </li>
                         <li>
+                            <i title="Add favorite" class="material-icons w3-large">person_add</i>
                             <span class="status status-online">Samanta<span class="new-message"></span></span>
                         </li>
                     </ul>

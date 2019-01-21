@@ -1,5 +1,5 @@
 menu {
-    padding: 0.2rem;;
+    padding: 0;
     text-align: left;
     height: 50px;
     background: lightgray;
@@ -7,15 +7,18 @@ menu {
 }
 
 menu .material-icons {
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 menu a {
     color: white;
-    width: 1.5rem;
     display: inline;
 }
 
-#logout, #profile {
+#logout {
     float: right;
+}
+
+#profile {
+    float: left;
 }

@@ -36,7 +36,8 @@
 }
 
 .active-contact {
-    background: lightgray;        
+    background: darkgray;
+    border-bottom: 4px solid #3f9ce2 !important;
 }
 
 .new-message {
@@ -45,7 +46,7 @@
     background: #409ee3;
     float: right;
     overflow: hidden;
-    border-radius: 15%;
+    border-radius: 50%;
 }
 
 .new-message span { 
@@ -57,13 +58,27 @@
 
 .contacts li {
     list-style-type: none;
-    border-bottom: 2px solid;
-    border-color: #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
     padding: 10px 5px;
     cursor: pointer;
-    transition: border-color 0.6s linear;
+    transition: border-color  0.3s linear;
+    transition: border-bottom 0.3s linear;
 }
 
-.contacts li:hover {
+.contacts li:hover:not(.active-contact) {
     border-color: #3f9ce2;
+    background-color: lightgray;
+}
+
+.contacts li i {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    color: white;
+    display: none;
+    transform: translateY(-5px);
+}
+
+.contacts li:hover i {
+    display: inline-block;
 }

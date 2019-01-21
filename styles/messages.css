@@ -12,12 +12,16 @@
     font-size: 67%;
 }
 
-.incoming .message{
-    background: linear-gradient(#e1e1e1, #ffffff);
-}
-
 .outgoing {
     margin-left: auto;
+}
+
+.incoming {
+    margin-right: auto;
+}
+
+.incoming .message{
+    background: linear-gradient(#e1e1e1, #ffffff);
 }
 
 .outgoing .message{
