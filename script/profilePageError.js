@@ -1,5 +1,11 @@
 let passwordOne = document.getElementById('password');
 let passwordTwo = document.getElementById('confirm-password');
+let displayName = document.getElementById('display-name');
+
+document.getElementById('cancel').addEventListener('click', function(event) {
+    event.preventDefault()
+    window.location.replace('./chat.html');
+});
 
 document.addEventListener('submit', function (event) {
     event.preventDefault();
