@@ -12,19 +12,16 @@
 <body>
     <div id="center">
         <form action="#">
-            <label>Login</label>
-            <p id="username">loginHere</p>
-            <label>Username</label>
-            <p id="username">myuserName</p>
+            <label for="username">Username</label>
+            <input id="username" type="text">
+            <label for="password">Password</label>
+            <input placeholder="New password" id="password" type="password">
+            <label for="confirm-password">Confirm password</label>
+            <input placeholder="New password" id="confirm-password" type="password">
+            <button id="sign-in">Save</button>
         </form>
-        <button>Change username</button>
-        <button>Change password</button>
     </div>
-    <!-- <div class="error-message">
-        <p>Mandatory values must be entered</p>
-    </div> -->
-    <script src="script/createpopup.js"></script>
-    <script src="script/loginPageError.js"></script>
+<script src="script/profilePageError.js"></script>
 </body>
 
 </html>
