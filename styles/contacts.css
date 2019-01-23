@@ -82,3 +82,14 @@
 .contacts li:hover i {
     display: inline-block;
 }
+
+@media screen and (max-width: 800px) {
+    .contacts li i {
+        color: black;
+        display: inline-block;
+    }
+
+    .contacts li:hover i {
+        display: inline-block;
+    }
+}
