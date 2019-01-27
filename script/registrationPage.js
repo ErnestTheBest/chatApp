@@ -50,6 +50,8 @@ function validateAndRegister() {
             registerNewUser(username.value, passwordOne.value).then(res => {
                 if (res.code === 400) {
                     createAndDisplayPopup(res.message.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
+                } else {
+                    
                 }
                 rez = res;
             });

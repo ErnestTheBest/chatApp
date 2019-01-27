@@ -1,8 +1,11 @@
 let inputs = Array.from(document.querySelectorAll('form input'));
+let username = document.getElementById('username');
+let password = document.getElementById('password');
+let rez;
 
 document.getElementsByTagName('form')[0].addEventListener('submit', function (event) {
     event.preventDefault();
-    validateFieldsNotEmpty();
+    validateAndLogin();
 });
 
 
@@ -22,6 +25,12 @@ function notValid() {
     });
 }
 
-function validateFieldsNotEmpty() {
+function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
+    loginExistingUser(username.value, password.value).then(res => {
+        if (res.code === 401) {
+            createAndDisplayPopup(res.message, 'linear-gradient(#f95062, #df251b)');
+        }
+        rez = res;
+    });
 }

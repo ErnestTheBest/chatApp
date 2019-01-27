@@ -11,3 +11,13 @@ function registerNewUser(userName, pass) {
         return res.json();
     });
 }
+
+function loginExistingUser(userName, pass) {
+    return fetch(defaultUrl, {
+        headers: {
+            Authorization: `Basic ${btoa(`${userName}:${pass}`)}`
+        }
+    }).then(res => {
+        return res.json();
+    });
+}
