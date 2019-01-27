@@ -1,13 +1,15 @@
 let errorMessage = document.getElementById('error-message');
 let errorMessageText = document.querySelector('.error-message p');
 let signInButton = document.getElementById('sign-in');
+let username = document.getElementById('username');
 let passwordOne = document.getElementById('password');
 let passwordTwo = document.getElementById('confirm-password');
 let inputs = Array.from(document.querySelectorAll('form input'));
+let rez;
 
 document.addEventListener('submit', function (event) {
     event.preventDefault();
-    register();
+    validateAndRegister();
 });
 
 function valid() {
@@ -15,7 +17,7 @@ function valid() {
     inputs.forEach(e => e.classList.remove('error'));
 }
 
-function notValid() {
+function highlighEmptyFields() {
     createAndDisplayPopup('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)')
     inputs.forEach(e => {
         if (!e.value) {
@@ -34,7 +36,6 @@ function passwordDoNotMatch() {
 
 function validateFieldsNotEmpty() {
     let areValid = inputs.every(e => e.value);
-    areValid ? valid() : notValid();
     return areValid;
 }
 
@@ -42,8 +43,20 @@ function arePasswordsEqual() {
     return passwordOne.value === passwordTwo.value;
 }
 
-function register() {
+function validateAndRegister() {
     if (validateFieldsNotEmpty()) {
-        arePasswordsEqual() ? valid() : passwordDoNotMatch();
+        if (arePasswordsEqual()) {
+            valid();
+            registerNewUser(username.value, passwordOne.value).then(res => {
+                if (res.code === 400) {
+                    createAndDisplayPopup(res.message.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
+                }
+                rez = res;
+            });
+        } else {
+            passwordDoNotMatch();
+        }
+    } else {
+        highlighEmptyFields();
     }
 }
