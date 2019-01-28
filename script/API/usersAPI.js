@@ -1,7 +1,7 @@
-let defaultUrl = 'https://ernestthebest.herokuapp.com/users';
+let defaultUrl = 'https://ernestthebest.herokuapp.com';
 
 function registerNewUser(userName, pass) {
-    return fetch(defaultUrl, {
+    return fetch(`${defaultUrl}/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ function registerNewUser(userName, pass) {
 }
 
 function loginExistingUser(userName, pass) {
-    return fetch(defaultUrl, {
+    return fetch(`${defaultUrl}/me`, {
         headers: {
             Authorization: `Basic ${btoa(`${userName}:${pass}`)}`
         }

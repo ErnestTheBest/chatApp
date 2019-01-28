@@ -1,7 +1,8 @@
+checkSession();
+
 let inputs = Array.from(document.querySelectorAll('form input'));
 let username = document.getElementById('username');
 let password = document.getElementById('password');
-let rez;
 
 document.getElementsByTagName('form')[0].addEventListener('submit', function (event) {
     event.preventDefault();
@@ -28,9 +29,11 @@ function notValid() {
 function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
     loginExistingUser(username.value, password.value).then(res => {
-        if (res.code === 401) {
+        if (res.status === 'error') {
             createAndDisplayPopup(res.message, 'linear-gradient(#f95062, #df251b)');
+        } else {
+            window.sessionStorage.setItem('userId', res.data.id);
+            window.location.replace('./chat.html');
         }
-        rez = res;
     });
 }
