@@ -1,3 +1,5 @@
+checkSession();
+
 let passwordOne = document.getElementById('password');
 let passwordTwo = document.getElementById('confirm-password');
 let displayName = document.getElementById('display-name');

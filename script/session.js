@@ -1,9 +1,13 @@
 function checkSession() {
-    if (window.sessionStorage.getItem('userId')) {
-        window.location.replace('./chat.html');
-    } else {
-        window.location.replace('./index.html');
-     }
+    if (!window.sessionStorage.getItem('userId')) {
+        if (window.location.pathname === '/index.html' || window.location.pathname === '/register.html') {
+            
+        } else {
+            window.location.replace('/index.html');
+        }
+    } else if (window.location.pathname === '/index.html' || window.location.pathname === '/register.html') {
+        window.location.replace('/chat.html');
+    }
 }
 
 function logout() {

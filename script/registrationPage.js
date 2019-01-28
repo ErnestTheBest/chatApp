@@ -1,3 +1,5 @@
+checkSession();
+
 let errorMessage = document.getElementById('error-message');
 let errorMessageText = document.querySelector('.error-message p');
 let signInButton = document.getElementById('sign-in');

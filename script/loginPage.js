@@ -33,7 +33,7 @@ function validateAndLogin() {
             createAndDisplayPopup(res.message, 'linear-gradient(#f95062, #df251b)');
         } else {
             window.sessionStorage.setItem('userId', res.data.id);
-            window.location.replace('./chat.html');
+            checkSession();
         }
     });
 }
