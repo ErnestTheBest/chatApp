@@ -32,7 +32,7 @@ function validateAndLogin() {
         if (res.status === 'error') {
             createAndDisplayPopup(res.message, 'linear-gradient(#f95062, #df251b)');
         } else {
-            window.sessionStorage.setItem('userId', res.data.id);
+            storeCredentials(res.data.id, username.value, password.value);
             checkSession();
         }
     });
