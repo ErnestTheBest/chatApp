@@ -7,7 +7,6 @@ function getAllUsersList() {
         }
     }).then(res => {
         console.log(res.status);
-        // console.log(res.json());
         return res.json();
     });
 }
