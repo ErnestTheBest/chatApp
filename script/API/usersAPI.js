@@ -12,34 +12,27 @@ function registerNewUser(userName, pass) {
     });
 }
 
-function updateUserProfile(userName, passs, userId, name = undefined, pass = undefined) {
+function updateUserProfile(name, pass) {
+
+    // Pochemu eto govno ne rabotaet?
+
     if (!name && !pass) {
         return new Error('No values were passed for user update.')
     } 
+    console.log(JSON.stringify({ name: name, password: pass }), window.sessionStorage.crecentials);
 
-    let requestBody = new FormData();
-
-    if (name) {
-        requestBody.set('name', name);
-    }
-
-    if (pass) {
-        requestBody.set('password', pass);
-    }
-
-    return fetch(`${defaultUrl}/users/${userId}`, {
+    return fetch(`${defaultUrl}/users/${window.sessionStorage.userId}`, {
         method: 'PUT',
         headers: {
-            Authorization: `Basic ${btoa(`${userName}:${passs}`)}`,
+            Authorization: `${window.sessionStorage.crecentials}`,
             'Content-Type': 'application/json',
         },
-        body: requestBody
+        body: JSON.stringify({ name: name, password: pass })
     }).then(res => {
+        console.log(res);
         return res.json();
     });
 }
-
-// JSON.stringify({ username: name, password: pass })
 
 function loginExistingUser(userName, pass) {
     return fetch(`${defaultUrl}/me`, {
