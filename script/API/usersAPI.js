@@ -1,5 +1,17 @@
 let defaultUrl = 'https://ernestthebest.herokuapp.com';
 
+function getAllUsersList() {
+    return fetch(`${defaultUrl}/users`, {
+        headers: {
+            Authorization: `Basic ${window.sessionStorage.crecentials}`
+        }
+    }).then(res => {
+        console.log(res.status);
+        // console.log(res.json());
+        return res.json();
+    });
+}
+
 function registerNewUser(userName, pass) {
     return fetch(`${defaultUrl}/users`, {
         method: 'POST',
@@ -13,23 +25,18 @@ function registerNewUser(userName, pass) {
 }
 
 function updateUserProfile(name, pass) {
-
-    // Pochemu eto govno ne rabotaet?
-
     if (!name && !pass) {
         return new Error('No values were passed for user update.')
-    } 
-    console.log(JSON.stringify({ name: name, password: pass }), window.sessionStorage.crecentials);
+    }
 
     return fetch(`${defaultUrl}/users/${window.sessionStorage.userId}`, {
         method: 'PUT',
         headers: {
-            Authorization: `${window.sessionStorage.crecentials}`,
+            Authorization: `Basic ${window.sessionStorage.crecentials}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name: name, password: pass })
     }).then(res => {
-        console.log(res);
         return res.json();
     });
 }
