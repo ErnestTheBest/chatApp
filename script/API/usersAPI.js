@@ -6,7 +6,6 @@ function getAllUsersList() {
             Authorization: `Basic ${window.sessionStorage.crecentials}`
         }
     }).then(res => {
-        console.log(res.status);
         return res.json();
     });
 }
