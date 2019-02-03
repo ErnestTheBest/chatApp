@@ -25,10 +25,14 @@ function addListConcatc(contactId, username, name = undefined, isFavorite = fals
 }
 
 function createContactList(contactsArray) {
-    contactsList.innerHTML = '';
+    clearContactList();
     for (const contact of contactsArray) {
         addListConcatc(contact.id, contact.username, contact.name);
     }
+}
+
+function clearContactList() {
+    contactsList.innerHTML = '';
 }
 
 function setActiveContact(elem) {
