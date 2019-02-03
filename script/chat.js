@@ -10,3 +10,9 @@ menuButton.addEventListener('click', function() {
 })
 
 logoutButton.addEventListener('click', logout);
+
+function initChat() {
+    getAllUsersList().then(res => {createContactList(res.data)});
+}
+
+initChat();

@@ -21,3 +21,9 @@ function addListConcatc(username, name = undefined, isFavorite = false) {
     contactsList.appendChild(element);
 }
 
+function createContactList(contactsArray) {
+    contactsList.innerHTML = '';
+    for (const contact of contactsArray) {
+        addListConcatc(contact.username, contact.name);
+    }
+}
