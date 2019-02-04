@@ -13,11 +13,11 @@ function checkSession() {
 
 function logout() {
     window.sessionStorage.removeItem('userId');
-    window.sessionStorage.removeItem('crecentials');
+    window.sessionStorage.removeItem('credentials');
     checkSession();
 }
 
 function storeCredentials(userId, username, password) {
     window.sessionStorage.setItem('userId', userId);
-    window.sessionStorage.setItem('crecentials', btoa(`${username}:${password}`));
+    window.sessionStorage.setItem('credentials', btoa(`${username}:${password}`));
 }

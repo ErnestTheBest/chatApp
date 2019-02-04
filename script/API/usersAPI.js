@@ -3,7 +3,7 @@ let defaultUrl = 'https://ernestthebest.herokuapp.com';
 function getAllUsersList() {
     return fetch(`${defaultUrl}/users`, {
         headers: {
-            Authorization: `Basic ${window.sessionStorage.crecentials}`
+            Authorization: `Basic ${window.sessionStorage.credentials}`
         }
     }).then(res => {
         return res.json();
@@ -30,7 +30,7 @@ function updateUserProfile(name, pass) {
     return fetch(`${defaultUrl}/users/${window.sessionStorage.userId}`, {
         method: 'PUT',
         headers: {
-            Authorization: `Basic ${window.sessionStorage.crecentials}`,
+            Authorization: `Basic ${window.sessionStorage.credentials}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name: name, password: pass })

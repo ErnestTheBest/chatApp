@@ -3,7 +3,10 @@ let contactsList = document.querySelector('.contacts-list');
 function addListConcatc(contactId, username, name = undefined, isFavorite = false) {
     let element = document.createElement('li');
     let span = document.createElement('span');
+
+    //TODO: Fix this placeholder after clear what to do with away system
     span.classList.add('status', 'status-offline');
+
     name ? span.textContent = name : span.textContent = username;
     let favorite = document.createElement('i');
     favorite.classList.add('material-icons', 'w3-large');
@@ -48,7 +51,7 @@ function setActiveContact(elem) {
         } else {
             elem = elem.path[0];
         }
-    }
+    } else return;
 
     // 1 
     let exists = contactsList.querySelector('.active-contact');
