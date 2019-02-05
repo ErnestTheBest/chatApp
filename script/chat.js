@@ -13,6 +13,7 @@ logoutButton.addEventListener('click', logout);
 
 function initChat() {
     getAllUsersList().then(res => {createContactList(res.data)});
+    setChatContextNameAndStatus();
 };
 
 initChat();

@@ -5,7 +5,7 @@ function addListConcatc(contactId, username, name = undefined, isFavorite = fals
     let span = document.createElement('span');
 
     //TODO: Fix this placeholder after clear what to do with away system
-    span.classList.add('status', 'status-offline');
+    span.classList.add('status', 'status-online');
 
     name ? span.textContent = name : span.textContent = username;
     let favorite = document.createElement('i');
