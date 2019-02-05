@@ -68,4 +68,7 @@ function setActiveContact(elem) {
     } else {
         elem.classList.toggle(('active-contact'));
     }
+
+    setChatContext(elem.id, elem.querySelector('span').innerText);
+    setChatContextNameAndStatus();
 }
