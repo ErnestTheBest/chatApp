@@ -29,8 +29,8 @@ function notValid() {
 function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
     loginExistingUser(username.value, password.value).then(res => {
-        if (res.status === 'error') {
-            createAndDisplayPopup(res.message, 'linear-gradient(#f95062, #df251b)');
+        if (res.errors) {
+            createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
         } else {
             storeCredentials(res.data.id, username.value, password.value);
             checkSession();

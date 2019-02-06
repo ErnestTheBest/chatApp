@@ -1,7 +1,19 @@
 let messageWindow = document.querySelector('.message-window');
 let messageWindowInput = messageWindow.querySelector('input');
+let messageWindowInputDiv = messageWindow.querySelector('.message-input');
+let messageWindowButton = messageWindow.querySelector('.message-button');
 
-messageWindow.addEventListener('submit', function (event) {
+messageWindowInput.addEventListener('submit', function (event) {
+    event.preventDefault();
+    sendTextMessage();
+});
+
+messageWindowInputDiv.addEventListener('submit', function (event) {
+    event.preventDefault();
+    sendTextMessage();
+});
+
+messageWindowButton.addEventListener('click', function (event) {
     event.preventDefault();
     sendTextMessage();
 });
