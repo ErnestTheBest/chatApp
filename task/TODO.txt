@@ -1,1 +1,3 @@
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
+* On login load contacts list.
+* Add remove-add contacts.

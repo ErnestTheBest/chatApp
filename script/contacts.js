@@ -74,4 +74,5 @@ function setActiveContact(elem) {
 
     setChatContext(elem.id, elem.querySelector('span').innerText);
     setChatContextNameAndStatus();
+    toggleMessageInput();
 }
