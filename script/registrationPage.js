@@ -50,8 +50,8 @@ function validateAndRegister() {
         if (arePasswordsEqual()) {
             valid();
             registerNewUser(username.value, passwordOne.value).then(res => {
-                if (res.status === 'error') {
-                    createAndDisplayPopup(res.message.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
+                if (res.errors) {
+                    createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
                 } else {
                     storeCredentials(res.data.id, username.value, passwordOne.value);
                     checkSession();

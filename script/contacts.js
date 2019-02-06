@@ -35,7 +35,10 @@ function createContactList(contactsArray) {
 }
 
 function clearContactList() {
-    contactsList.innerHTML = '';
+    // Rad that it's faster than innerHTML
+    while (contactsList.firstChild) {
+        contactsList.removeChild(contactsList.firstChild);
+    }
 }
 
 function setActiveContact(elem) {
