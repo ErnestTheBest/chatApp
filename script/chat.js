@@ -16,6 +16,7 @@ function initChat() {
     setChatContextNameAndStatus();
     clearChatMessages();
     toggleMessageInput();
+    printChatMessages();
 };
 
 initChat();

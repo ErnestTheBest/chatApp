@@ -36,6 +36,7 @@ function createMessageElement(message) {
 
 function printChatMessages() {
     clearChatMessages();
+    
     getMessages().then( res => {
         let len = res.data.length;
 
