@@ -1,7 +1,5 @@
-let messagesUrl = `https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/contacts/${sessionStorage.chatContextId}/messages`
-
 function sendMessage(messageText) {
-    return fetch(messagesUrl, {
+    return fetch(`https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/contacts/${sessionStorage.chatContextId}/messages`, {
         method: 'POST',
         headers: {
             Authorization: `Basic ${window.sessionStorage.credentials}`,
@@ -14,7 +12,7 @@ function sendMessage(messageText) {
 }
 
 function getMessages() {
-    return fetch(messagesUrl, {
+    return fetch(`https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/contacts/${sessionStorage.chatContextId}/messages`, {
         headers: {
             Authorization: `Basic ${window.sessionStorage.credentials}`,
         }
