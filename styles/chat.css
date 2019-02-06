@@ -57,6 +57,10 @@
     display: inline;
 }
 
+.message-input input {
+    text-align: left;
+}
+
 .message-button {
     margin-left: 20px;
     display: inline;
