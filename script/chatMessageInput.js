@@ -3,14 +3,10 @@ let messageWindowInput = messageWindow.querySelector('input');
 let messageWindowInputDiv = messageWindow.querySelector('.message-input');
 let messageWindowButton = messageWindow.querySelector('.message-button');
 
-messageWindowInput.addEventListener('submit', function (event) {
-    event.preventDefault();
-    sendTextMessage();
-});
-
-messageWindowInputDiv.addEventListener('submit', function (event) {
-    event.preventDefault();
-    sendTextMessage();
+messageWindowInput.addEventListener('keypress', function (event) {
+    if (event.charCode === 13) {
+        sendTextMessage();
+    }
 });
 
 messageWindowButton.addEventListener('click', function (event) {
@@ -28,7 +24,8 @@ function toggleMessageInput() {
 
 function sendTextMessage() {
     if (messageWindowInput.value) {
-        sendMessage(messageWindowInput.value).then(printChatMessages());
+        sendMessage(messageWindowInput.value).then(
+            setTimeout(printChatMessages, 750));
         messageWindowInput.value = "";
     }
 };

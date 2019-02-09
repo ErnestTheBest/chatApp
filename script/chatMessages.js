@@ -44,6 +44,8 @@ function printChatMessages() {
             for (let index = len - 1; index >= 0; index--) {
                 contentWindow.appendChild(createMessageElement(res.data[index]));
             }
+
+            contentWindow.scrollTop = contentWindow.scrollHeight
         }
     })
     
