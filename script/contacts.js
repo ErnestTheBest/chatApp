@@ -27,10 +27,10 @@ function addListConcatc(contactId, username, name = undefined, isFavorite = fals
     contactsList.appendChild(element);
 }
 
-function createContactList(contactsArray) {
+function createContactList(contactsArray, areFavorite = false) {
     clearContactList();
     for (const contact of contactsArray) {
-        addListConcatc(contact.id, contact.username, contact.name);
+        addListConcatc(contact.id, contact.username, contact.name, areFavorite);
     }
 }
 

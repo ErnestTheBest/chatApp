@@ -25,6 +25,6 @@ function findContacts() {
             contactsArray.length ? createContactList(contactsArray) : clearContactList();
         });
     } else {
-        getAllUsersList().then(res => {createContactList(res.data)});
+        getContactsList().then(res => {createContactList(res.data, true)});
     }
 }

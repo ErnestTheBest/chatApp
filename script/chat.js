@@ -12,11 +12,11 @@ menuButton.addEventListener('click', function() {
 logoutButton.addEventListener('click', logout);
 
 function initChat() {
-    getAllUsersList().then(res => {createContactList(res.data)});
+    getContactsList().then(res => {createContactList(res.data, true)});
     setChatContextNameAndStatus();
     clearChatMessages();
     toggleMessageInput();
-    printChatMessages();
-};
+    if (sessionStorage.chatContextId) printChatMessages();
+    };
 
 initChat();
