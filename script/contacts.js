@@ -13,9 +13,17 @@ function addListConcatc(contactId, username, name = undefined, isFavorite = fals
     if (isFavorite) {
         favorite.title = 'Remove favorite';
         favorite.textContent = 'person_add_disabled';
+        favorite.addEventListener('click', function () {
+            removeContact(favorite.parentNode.id);
+            setTimeout(defineContactList, 500);
+        })
     } else {
         favorite.title = 'Add favorite';
         favorite.textContent = 'person_add';
+        favorite.addEventListener('click', function () {
+            addContact(favorite.parentNode.id);
+            setTimeout(defineContactList, 500);
+        })
     }
 
     element.id = contactId;
@@ -45,8 +53,7 @@ function setActiveContact(elem) {
     // 1. Is there active contact
     // 2. Find out if active chat == chat that is beine selected
     // 3. true - do nothing. false - toggle .active-contact on both list items
-    
-    
+
     // I feel ashamed for this if()
     if (elem.target.nodeName !== 'I') {
         if (elem.target.nodeName === 'SPAN') {
@@ -76,4 +83,12 @@ function setActiveContact(elem) {
     setChatContextNameAndStatus();
     toggleMessageInput();
     printChatMessages();
+}
+
+function defineContactList() {
+    getContactsList().then(res => {
+        if (!res.data.length) {
+            getAllUsersList().then(res => createContactList(res.data));
+        } else createContactList(res.data, true)
+    });
 }

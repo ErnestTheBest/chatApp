@@ -12,11 +12,7 @@ menuButton.addEventListener('click', function () {
 logoutButton.addEventListener('click', logout);
 
 function initChat() {
-    getContactsList().then(res => {
-        if (!res.data.length) {
-            getAllUsersList().then(res => createContactList(res.data));
-        } else createContactList(res.data, true)
-    });
+    defineContactList();
 
     setChatContextNameAndStatus();
     clearChatMessages();

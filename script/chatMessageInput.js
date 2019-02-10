@@ -25,7 +25,7 @@ function toggleMessageInput() {
 function sendTextMessage() {
     if (messageWindowInput.value) {
         sendMessage(messageWindowInput.value).then(
-            setTimeout(printChatMessages, 750));
+            setTimeout(printChatMessages, 500));
         messageWindowInput.value = "";
     }
 };

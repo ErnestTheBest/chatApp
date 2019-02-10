@@ -18,7 +18,7 @@ function addContact(contactId) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 'id': parseInt(contactId) })
-    }).then({ });
+    });
 }
 
 function removeContact(contactId) {
