@@ -18,6 +18,7 @@ function initChat() {
     clearChatMessages();
     toggleMessageInput();
     if (sessionStorage.chatContextId) printChatMessages();
+    pingPong();
 };
 
 initChat();

@@ -1,10 +1,12 @@
-* When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Polling function
 * Poll pings
 * Poll message updates in chat (create chackForNewMessages function)
-* New messages mechanism from users
+* New messages mechanism from contacts only while online
+* New messages mechanism from contacts while offline
+* New messages mechanism from users only while online/offline
 * Online/Offline users mechanism
 * On search determine if contact is already favorite or not
+* When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 
 ----- DONE -----
 * Add remove-add contacts on button click
