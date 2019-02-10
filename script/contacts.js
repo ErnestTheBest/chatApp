@@ -83,12 +83,21 @@ function setActiveContact(elem) {
     setChatContextNameAndStatus();
     toggleMessageInput();
     printChatMessages();
+
+    launchMessageUpdateService();
 }
 
 function defineContactList() {
     getContactsList().then(res => {
         if (!res.data.length) {
             getAllUsersList().then(res => createContactList(res.data));
-        } else createContactList(res.data, true)
+        } else { createContactList(res.data, true) };
+
+        
+    }).then(()=> {
+        if (sessionStorage.chatContextId) {
+            // TODO: This will be bugged if last open chat was with someone not in contact list
+            document.getElementById(sessionStorage.chatContextId).classList.add('active-contact');
+        }
     });
 }

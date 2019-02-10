@@ -17,8 +17,12 @@ function initChat() {
     setChatContextNameAndStatus();
     clearChatMessages();
     toggleMessageInput();
-    if (sessionStorage.chatContextId) printChatMessages();
     pingPong();
+    if (sessionStorage.chatContextId) {
+        printChatMessages();
+        launchMessageUpdateService();
+    };
 };
 
+// TODO: Add try catch?
 initChat();

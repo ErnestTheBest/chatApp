@@ -27,5 +27,6 @@ function sendTextMessage() {
         sendMessage(messageWindowInput.value).then(
             setTimeout(printChatMessages, 500));
         messageWindowInput.value = "";
+        runMessageUpdateService();
     }
 };

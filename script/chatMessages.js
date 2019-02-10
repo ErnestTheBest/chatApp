@@ -17,6 +17,7 @@ function createMessageElement(message) {
     span.classList.add('status', 'status-online');
 
     let time = document.createElement('time');
+    time.dateTime = message.created_at;
     time.textContent = `${messageDate.getHours()}:${messageDate.getMinutes()}:${messageDate.getSeconds()}`
 
     messageInfo.appendChild(span);
@@ -38,17 +39,18 @@ function printChatMessages() {
     clearChatMessages();
     
     getMessages().then( res => {
-        let len = res.data.length;
-
-        if (len) {
-            for (let index = len - 1; index >= 0; index--) {
-                contentWindow.appendChild(createMessageElement(res.data[index]));
-            }
+        if (res.data.length) {
+            printChatMessageList(res.data);
 
             contentWindow.scrollTop = contentWindow.scrollHeight
         }
     })
-    
+}
+
+function printChatMessageList(list) {
+    for (let index = list.length - 1; index >= 0; index--) {
+        contentWindow.appendChild(createMessageElement(list[index]));
+    }
 }
 
 function clearChatMessages() {
