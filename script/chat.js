@@ -4,7 +4,7 @@ let menuButton = document.querySelector('.menu-button');
 let container = document.querySelector('.container');
 let logoutButton = document.getElementById('logout');
 
-menuButton.addEventListener('click', function() {
+menuButton.addEventListener('click', function () {
     menuButton.classList.toggle('toggle');
     container.classList.toggle('menu-open');
 });
@@ -12,11 +12,16 @@ menuButton.addEventListener('click', function() {
 logoutButton.addEventListener('click', logout);
 
 function initChat() {
-    getContactsList().then(res => {createContactList(res.data, true)});
+    getContactsList().then(res => {
+        if (!res.data.length) {
+            getAllUsersList().then(res => createContactList(res.data));
+        } else createContactList(res.data, true)
+    });
+
     setChatContextNameAndStatus();
     clearChatMessages();
     toggleMessageInput();
     if (sessionStorage.chatContextId) printChatMessages();
-    };
+};
 
 initChat();
