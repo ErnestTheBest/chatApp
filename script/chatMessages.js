@@ -18,7 +18,7 @@ function createMessageElement(message) {
 
     let time = document.createElement('time');
     time.dateTime = message.created_at;
-    time.textContent = `${messageDate.getHours()}:${messageDate.getMinutes()}:${messageDate.getSeconds()}`
+    time.textContent = formatTime(messageDate);
 
     messageInfo.appendChild(span);
     messageInfo.appendChild(time);
@@ -57,4 +57,17 @@ function clearChatMessages() {
     while (contentWindow.firstChild) {
         contentWindow.removeChild(contentWindow.firstChild);
     }
+}
+
+function formatTime(date) {
+    //TODO : is there a better way?
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    if (hours < 10) hours = `0${hours}`;
+    if (minutes < 10) minutes = `0${minutes}`;
+    if (seconds < 10) seconds = `0${seconds}`;
+
+    return `${hours}:${minutes}:${seconds}`;
 }
