@@ -1,3 +1,5 @@
+let messageServicePolled = false;
+
 function pingPong() {
     return ping().then(() => {
 
@@ -8,7 +10,12 @@ function pingPong() {
 
 
 function launchMessageUpdateService() {
-    sessionStorage.setItem('messageUpdateService', true);
+    if (messageServicePolled) {
+        console.log('Message updates service already polled');
+        return;
+    }
+
+    messageServicePolled = true;
     runMessageUpdateService();
 }
 
