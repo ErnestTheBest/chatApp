@@ -19,6 +19,7 @@ function initChat() {
     toggleMessageInput();
     pingPong();
     if (sessionStorage.chatContextId) {
+        //TODO: This is incorrect way. Fetched twice from start on new connection.
         printChatMessages();
         launchMessageUpdateService();
     };

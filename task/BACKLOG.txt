@@ -4,10 +4,10 @@
 * New messages mechanism from users only while online/offline
 * On search determine if contact is already favorite or not
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
-* Two digit time in messages
 * Seemless message updates (not re-rendering all page)
 
 ----- DONE -----
+* Two digit time in messages
 * Poll message updates in chat (create chackForNewMessages function)
 * Poll pings
 * Add remove-add contacts on button click
