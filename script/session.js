@@ -16,6 +16,7 @@ function logout() {
     window.sessionStorage.removeItem('credentials');
     window.sessionStorage.removeItem('chatContextId');
     window.sessionStorage.removeItem('chatContextName');
+    window.sessionStorage.removeItem('userStatuses');
     checkSession();
 }
 
@@ -27,4 +28,8 @@ function storeCredentials(userId, username, password) {
 function setChatContext(chatId, chatName) {
     window.sessionStorage.setItem('chatContextId', chatId);
     window.sessionStorage.setItem('chatContextName', chatName);
+}
+
+function setUserStatuses(userStatuses) {
+    window.sessionStorage.setItem('userStatuses', userStatuses);
 }

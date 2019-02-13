@@ -33,3 +33,11 @@ function runMessageUpdateService() {
         setTimeout(runMessageUpdateService, 3000);
     });
 }
+
+function runUserStatusService() {
+    return getAllUsersList().then(res => {
+        let st = getUserStatuses(res.data);
+        setUserStatuses(st);
+        setTimeout(runUserStatusService, 10000);
+    })
+}

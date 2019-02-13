@@ -12,6 +12,7 @@ menuButton.addEventListener('click', function () {
 logoutButton.addEventListener('click', logout);
 
 function initChat() {
+    runUserStatusService();
     defineContactList();
 
     setChatContextNameAndStatus();

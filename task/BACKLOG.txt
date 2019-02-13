@@ -6,6 +6,7 @@
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Seemless message updates (not re-rendering all page)
 * Sort contacts alphabetically
+* Lock mechanism for input and form fields
 
 ----- DONE -----
 * Two digit time in messages
