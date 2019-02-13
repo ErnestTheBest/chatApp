@@ -7,7 +7,7 @@ function setChatContextNameAndStatus() {
 
     if (sessionStorage.chatContextName) {
         chatContextName.textContent = sessionStorage.chatContextName;
-        chatContextName.classList.add('status', 'status-online');
+        chatContextName.classList.add('status', `status-${getUserStatus(sessionStorage.chatContextId)}`);
     } else {
         chatContextName.textContent = 'Welcome to chatApp!'
         chatContextName.className = '';

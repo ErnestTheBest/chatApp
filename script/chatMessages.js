@@ -3,6 +3,7 @@ let contentWindow = document.querySelector('.content-window');
 function createMessageElement(message) {
     let chatMessage = document.createElement('div');
     let isMyMessage = message.sender_id == sessionStorage.userId;
+    let userStatus = isMyMessage ? 'online' : getUserStatus(message.sender_id);
     let messageDate = new Date(message.created_at);
     // {message: "Ho are you", sender_id: 2, recipient_id: 4, created_at: "2019-02-06T19:24:23.372Z"}
     isMyMessage ? chatMessage.classList.add('outgoing') : chatMessage.classList.add('incoming');
@@ -13,8 +14,7 @@ function createMessageElement(message) {
 
     let span = document.createElement('span');
     isMyMessage ? span.textContent = 'You, ' : span.textContent = sessionStorage.chatContextName + ', ';
-    //TODO: Fix this placeholder after clear what to do with away system
-    span.classList.add('status', 'status-online');
+    span.classList.add('status', `status-${userStatus}`);
 
     let time = document.createElement('time');
     time.dateTime = message.created_at;
