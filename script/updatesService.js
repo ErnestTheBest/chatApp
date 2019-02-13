@@ -36,8 +36,7 @@ function runMessageUpdateService() {
 
 function runUserStatusService() {
     return getAllUsersList().then(res => {
-        let st = getUserStatuses(res.data);
-        setUserStatuses(st);
+        setUserStatuses(JSON.stringify(mapUserStatuses(res.data)));
         setTimeout(runUserStatusService, 10000);
     })
 }
