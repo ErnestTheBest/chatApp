@@ -1,7 +1,6 @@
-* Online/Offline users mechanism
+* User statuses update service
 * New messages mechanism from contacts only while online
-* New messages mechanism from contacts while offline
-* New messages mechanism from users only while online/offline
+* Block writing to offline users
 * On search determine if contact is already favorite or not
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Seemless message updates (not re-rendering all page)
@@ -9,6 +8,7 @@
 * Lock mechanism for input and form fields
 
 ----- DONE -----
+* Online/Offline users mechanism
 * Two digit time in messages
 * Poll message updates in chat (create chackForNewMessages function)
 * Poll pings
