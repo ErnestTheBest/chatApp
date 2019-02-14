@@ -19,6 +19,8 @@ function initChat() {
     clearChatMessages();
     toggleMessageInput();
     pingPong();
+    runUserStatusUpdateService();
+    
     if (sessionStorage.chatContextId) {
         //TODO: This is incorrect way. Fetched twice from start on new connection.
         printChatMessages();

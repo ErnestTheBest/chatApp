@@ -8,9 +8,13 @@ function setChatContextNameAndStatus() {
     if (sessionStorage.chatContextName) {
         chatContextName.textContent = sessionStorage.chatContextName;
         //TODO: Find out why this is not showing corrcet status after switching from contact to contact
-        chatContextName.classList.add('status', `status-${getUserStatus(sessionStorage.chatContextId)}`);
+        updateChatContextStatus();
     } else {
         chatContextName.textContent = 'Welcome to chatApp!'
         chatContextName.className = '';
     }
+}
+
+function updateChatContextStatus() {
+    updateSpanStatus(chatContextName, sessionStorage.chatContextId);
 }

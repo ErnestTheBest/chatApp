@@ -71,3 +71,12 @@ function formatTime(date) {
 
     return `${hours}:${minutes}:${seconds}`;
 }
+
+function updateMessagesListStatuses() {
+    let incomingMessages = contentWindow.querySelectorAll('.incoming span');
+    if (incomingMessages.length) {
+        incomingMessages.forEach(e => {
+            updateSpanStatus(e, sessionStorage.chatContextId);
+        });
+    }
+}

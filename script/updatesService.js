@@ -37,6 +37,15 @@ function runMessageUpdateService() {
 function runUserStatusService() {
     return getAllUsersList().then(res => {
         setUserStatuses(JSON.stringify(mapUserStatuses(res.data)));
+        console.log('User status update service running');
         setTimeout(runUserStatusService, 10000);
     })
+}
+
+function runUserStatusUpdateService() {
+    updateContactsListStatuses();
+    updateChatContextStatus();
+    updateMessagesListStatuses();
+    console.log('Elements status update service running');
+    setTimeout(runUserStatusUpdateService, 10000);
 }

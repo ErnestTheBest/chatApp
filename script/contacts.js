@@ -100,3 +100,9 @@ function defineContactList() {
         }
     });
 }
+
+function updateContactsListStatuses() {
+    contactsList.querySelectorAll('li').forEach(e => {
+        updateSpanStatus(e.querySelector('span'), e.id);
+    })
+}
