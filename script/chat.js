@@ -19,10 +19,10 @@ function initChat() {
     clearChatMessages();
     toggleMessageInput();
     pingPong();
-    runUserStatusUpdateService();
-    
+    // Since userstatuses is not in sessionstorage yet, this needs delay. I know it's hardcoded and bad. Sorry.
+    setTimeout(runUserStatusUpdateService, 3000);
+
     if (sessionStorage.chatContextId) {
-        //TODO: This is incorrect way. Fetched twice from start on new connection.
         printChatMessages();
         launchMessageUpdateService();
     };

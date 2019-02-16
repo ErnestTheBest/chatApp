@@ -16,3 +16,6 @@
 * Poll pings
 * Add remove-add contacts on button click
 * On login load contacts list
+
+----- BUG -----
+* Status launch fails at initial login. 

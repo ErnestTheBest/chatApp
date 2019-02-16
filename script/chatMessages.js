@@ -60,7 +60,6 @@ function clearChatMessages() {
 }
 
 function formatTime(date) {
-    //TODO : is there a better way?
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
