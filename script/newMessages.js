@@ -20,8 +20,6 @@ function checkNewMessages() {
 
         Object.entries(result).forEach(e => {
             let [userId, createdAt] = e;
-            console.log(new Date(createdAt))
-            console.log(new Date(latestMessageUpdate))
             if (latestMessageUpdate < createdAt) {
                 if (!contactIds.hasOwnProperty(userId)) {
                     newMessages.push(parseInt(userId));
@@ -44,7 +42,6 @@ function checkNewMessages() {
         } else {
             markNewMessages(newMessages);
         }
+        latestMessageUpdate = +new Date;
     })
-
-    latestMessageUpdate = +new Date;
 }

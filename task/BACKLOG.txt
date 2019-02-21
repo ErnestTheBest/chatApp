@@ -24,4 +24,4 @@
 * Status launch fails at initial login. 
 
 ----- BUG -----
-* If new message update timestamp is removed, every message update adds new user and circle to it
+* If user keeps sending messages, user and circle is added multiple times.
