@@ -21,6 +21,7 @@ function initChat() {
     pingPong();
     // Since userstatuses is not in sessionstorage yet, this needs delay. I know it's hardcoded and bad. Sorry.
     setTimeout(runUserStatusUpdateService, 3000);
+    setTimeout(runNewMessagesUpdateService, 3000);
 
     if (sessionStorage.chatContextId) {
         printChatMessages();

@@ -15,6 +15,7 @@ function logout() {
     window.sessionStorage.removeItem('userId');
     window.sessionStorage.removeItem('credentials');
     window.sessionStorage.removeItem('chatContextId');
+    window.sessionStorage.removeItem('chatUpdates');
     window.sessionStorage.removeItem('chatContextName');
     window.sessionStorage.removeItem('userStatuses');
     checkSession();
@@ -32,4 +33,8 @@ function setChatContext(chatId, chatName) {
 
 function setUserStatuses(userStatuses) {
     window.sessionStorage.setItem('userStatuses', userStatuses);
+}
+
+function setChatsUpdates(chatUpdates) {
+    window.sessionStorage.setItem('chatUpdates', chatUpdates);
 }

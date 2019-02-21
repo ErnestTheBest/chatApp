@@ -49,3 +49,9 @@ function runUserStatusUpdateService() {
     console.log('Elements status update service running');
     setTimeout(runUserStatusUpdateService, 10000);
 }
+
+function runNewMessagesUpdateService() {
+    console.log('Message update service running');
+    checkNewMessages();
+    setTimeout(runNewMessagesUpdateService, 3000);
+}

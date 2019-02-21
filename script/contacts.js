@@ -1,6 +1,6 @@
 let contactsList = document.querySelector('.contacts-list');
 
-function addListConcatc(contactId, username, name = undefined, isFavorite = false) {
+function addListConcact(contactId, username, name = undefined, isFavorite = false) {
     let element = document.createElement('li');
     let span = document.createElement('span');
 
@@ -37,7 +37,7 @@ function addListConcatc(contactId, username, name = undefined, isFavorite = fals
 function createContactList(contactsArray, areFavorite = false) {
     clearContactList();
     for (const contact of contactsArray) {
-        addListConcatc(contact.id, contact.username, contact.name, areFavorite);
+        addListConcact(contact.id, contact.username, contact.name, areFavorite);
     }
 }
 
@@ -106,3 +106,15 @@ function updateContactsListStatuses() {
         updateSpanStatus(e.querySelector('span'), e.id);
     })
 }
+
+function markNewMessages(userIdsArr) {
+    for (const newMessageUserId of userIdsArr) {
+        // <span class="new-message"></span>
+        let elem = document.getElementById(newMessageUserId);
+        if (!elem.classList.contains('active-contact')) {
+            let spa = document.createElement('span');
+            spa.className = 'new-message';
+            elem.querySelector('span').appendChild(spa);
+        }
+    }
+} 
