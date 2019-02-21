@@ -1,8 +1,11 @@
-* Lock mechanism for input and form fields
-* Block writing to offline users
 * New messages mechanism from contacts only while online
+* Fix IDs. They can't start with number
+* Lock mechanism for input and form fields
+* Populate profile page with data
+* Block writing to offline users
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Sort contacts alphabetically
+* Mobile viewport should not include address bar
 
 ----- FANCY -----
 * Seemless message updates (not re-rendering all page)
@@ -17,5 +20,8 @@
 * Add remove-add contacts on button click
 * On login load contacts list
 
------ BUG -----
+----- FIXED -----
 * Status launch fails at initial login. 
+
+----- BUG -----
+
