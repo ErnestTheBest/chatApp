@@ -31,7 +31,6 @@ function checkNewMessages() {
         if (newUsers.length) {
             getAllUsersList().then(({ data }) => {
                 data.forEach(e => {
-                    // {id: 1, username: "bulyshko", name: null, seen_at: "2019-02-20T15:54:32.985Z"}
                     if (newUsers.includes(e.id)) {
                         addListConcact(e.id, e.username, e.name);
                     }
@@ -42,6 +41,6 @@ function checkNewMessages() {
         } else {
             markNewMessages(newMessages);
         }
-        latestMessageUpdate = +new Date;
+        latestMessageUpdate = Date.now();
     })
 }

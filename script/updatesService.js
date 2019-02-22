@@ -51,7 +51,7 @@ function runUserStatusUpdateService() {
 }
 
 function runNewMessagesUpdateService() {
-    console.log('Message update service running');
+    console.log('New message update service running');
     checkNewMessages();
-    setTimeout(runNewMessagesUpdateService, 3000);
+    setTimeout(runNewMessagesUpdateService, 10000);
 }

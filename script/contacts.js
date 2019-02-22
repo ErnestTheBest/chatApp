@@ -82,6 +82,7 @@ function setActiveContact(elem) {
     setChatContextNameAndStatus();
     toggleMessageInput();
     printChatMessages();
+    removeNewMessageMarker(elem);
 
     launchMessageUpdateService();
 }
@@ -117,4 +118,9 @@ function markNewMessages(userIdsArr) {
             elem.querySelector('span').appendChild(spa);
         }
     }
-} 
+}
+
+function removeNewMessageMarker(el) {
+    let marker = el.querySelector('.new-message');
+    marker.remove();
+}
