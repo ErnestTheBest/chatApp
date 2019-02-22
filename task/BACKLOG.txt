@@ -1,8 +1,7 @@
-* New messages mechanism from contacts only while online
-* Fix IDs. They can't start with number
 * Lock mechanism for input and form fields
-* Populate profile page with data
 * Block writing to offline users
+* Fix IDs. They can't start with number
+* Populate profile page with data
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Sort contacts alphabetically
 * Mobile viewport should not include address bar
@@ -12,6 +11,7 @@
 * On search determine if contact is already favorite or not
 
 ----- DONE -----
+* New messages mechanism from contacts only while online
 * User statuses update service
 * Online/Offline users mechanism
 * Two digit time in messages
