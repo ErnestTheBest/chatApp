@@ -4,7 +4,7 @@ function checkNewMessages() {
 
     // This object is needed to check for messages from existing contacts
     let contactIds = {};
-    getContactsList().then(({ data }) => data.forEach(e => contactIds[e.id] = latestMessageUpdate));
+    contactsList.querySelectorAll('li').forEach(e => contactIds[e.id] = latestMessageUpdate);
 
     getChatsUpdate().then(({ data }) => {
         let result = {};
@@ -26,7 +26,7 @@ function checkNewMessages() {
                     newUsers.push(parseInt(userId));
                 } else { newMessages.push(parseInt(userId)) }
             }
-        })
+        });
 
         if (newUsers.length) {
             getAllUsersList().then(({ data }) => {
@@ -34,7 +34,7 @@ function checkNewMessages() {
                     if (newUsers.includes(e.id)) {
                         addListConcact(e.id, e.username, e.name);
                     }
-                })
+                });
 
                 markNewMessages(newMessages);
             })

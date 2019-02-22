@@ -112,7 +112,8 @@ function markNewMessages(userIdsArr) {
     for (const newMessageUserId of userIdsArr) {
         // <span class="new-message"></span>
         let elem = document.getElementById(newMessageUserId);
-        if (!elem.classList.contains('active-contact')) {
+        let marker = elem.querySelector('.new-message');
+        if (!elem.classList.contains('active-contact') && !marker) {
             let spa = document.createElement('span');
             spa.className = 'new-message';
             elem.querySelector('span').appendChild(spa);
@@ -122,5 +123,5 @@ function markNewMessages(userIdsArr) {
 
 function removeNewMessageMarker(el) {
     let marker = el.querySelector('.new-message');
-    marker.remove();
+    if (marker) marker.remove();
 }
