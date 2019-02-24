@@ -49,6 +49,8 @@ function validateAndRegister() {
     if (validateFieldsNotEmpty()) {
         if (arePasswordsEqual()) {
             valid();
+
+            disa
             registerNewUser(username.value, passwordOne.value).then(res => {
                 if (res.errors) {
                     createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
@@ -63,4 +65,5 @@ function validateAndRegister() {
     } else {
         highlighEmptyFields();
     }
+
 }

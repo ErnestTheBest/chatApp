@@ -1,4 +1,3 @@
-* Lock mechanism for input and form fields
 * Block writing to offline users
 * Fix IDs. They can't start with number
 * Populate profile page with data
@@ -11,6 +10,7 @@
 * On search determine if contact is already favorite or not
 
 ----- DONE -----
+* Lock mechanism for input and form fields
 * New messages mechanism from contacts only while online
 * User statuses update service
 * Online/Offline users mechanism

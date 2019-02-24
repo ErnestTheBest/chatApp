@@ -104,6 +104,10 @@ input.error {
     visibility: hidden;
 }
 
+::placeholder {
+    color: lightgray;
+}
+
 @media screen and (max-width: 700px) {
     #center {
         width: 70%;

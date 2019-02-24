@@ -30,7 +30,7 @@ function notValid() {
 function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
     
-    disableElements();
+    disableInputsAndButton(document.querySelector('form'));
     loginExistingUser(username.value, password.value).then(res => {
         if (res.errors) {
             createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
@@ -41,17 +41,5 @@ function validateAndLogin() {
         }
     });
 
-    enableElements();
-}
-
-function enableElements() {
-    password.removeAttribute('disabled');
-    username.removeAttribute('disabled');
-    signin.removeAttribute('disabled');
-}
-
-function disableElements() { 
-    password.disabled = true;
-    username.disabled = true;
-    signin.disabled = true;
+    enableInputsAndButton(document.querySelector('form'));
 }
