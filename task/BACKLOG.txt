@@ -22,6 +22,6 @@
 
 ----- FIXED -----
 * Status launch fails at initial login. 
+* If user keeps sending messages, user and circle is added multiple times.
 
 ----- BUG -----
-* If user keeps sending messages, user and circle is added multiple times.
