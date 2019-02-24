@@ -23,6 +23,10 @@ a {
     display: block;
 }
 
+button:disabled, input[type=text]:disabled, input[type=password]:disabled {
+    background: lightgray;
+}
+
 #center {
     width: 320px;
     text-align: center;

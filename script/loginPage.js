@@ -3,6 +3,7 @@ checkSession();
 let inputs = Array.from(document.querySelectorAll('form input'));
 let username = document.getElementById('username');
 let password = document.getElementById('password');
+let signin = document.getElementById('sign-in');
 
 document.getElementsByTagName('form')[0].addEventListener('submit', function (event) {
     event.preventDefault();
@@ -28,12 +29,29 @@ function notValid() {
 
 function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
+    
+    disableElements();
     loginExistingUser(username.value, password.value).then(res => {
         if (res.errors) {
             createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
+            enableElements();
         } else {
             storeCredentials(res.data.id, username.value, password.value);
             checkSession();
         }
     });
+
+    enableElements();
+}
+
+function enableElements() {
+    password.removeAttribute('disabled');
+    username.removeAttribute('disabled');
+    signin.removeAttribute('disabled');
+}
+
+function disableElements() { 
+    password.disabled = true;
+    username.disabled = true;
+    signin.disabled = true;
 }
