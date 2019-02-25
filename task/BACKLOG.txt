@@ -25,3 +25,4 @@
 * If user keeps sending messages, user and circle is added multiple times.
 
 ----- BUG -----
+* Due to 5 sec delay for new messages, if switched immidiately after new msg, indisator pops up
