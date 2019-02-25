@@ -41,6 +41,6 @@ function checkNewMessages() {
         } else {
             markNewMessages(newMessages);
         }
-        latestMessageUpdate = Date.now();
+        latestMessageUpdate = Date.now() - 5000;
     })
 }
