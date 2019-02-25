@@ -50,10 +50,11 @@ function validateAndRegister() {
         if (arePasswordsEqual()) {
             valid();
 
-            disa
+            disableInputsAndButton(document.querySelector('form'));
             registerNewUser(username.value, passwordOne.value).then(res => {
                 if (res.errors) {
                     createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
+                    enableInputsAndButton(document.querySelector('form'));
                 } else {
                     storeCredentials(res.data.id, username.value, passwordOne.value);
                     checkSession();

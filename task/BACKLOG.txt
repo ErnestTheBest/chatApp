@@ -1,10 +1,11 @@
 * Fix IDs. They can't start with number
-* Populate profile page with data
+* Refactor new messages service. Keep previous info
+* Populate profile page with data. Readonly field with login
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
-* Sort contacts alphabetically
-* Mobile viewport should not include address bar
+* Mobile viewport should not include address bar (100vh -> 100%)
 
 ----- FANCY -----
+* Sort contacts alphabetically(Comparator)
 * Seemless message updates (not re-rendering all page)
 * On search determine if contact is already favorite or not
 

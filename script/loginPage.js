@@ -34,12 +34,10 @@ function validateAndLogin() {
     loginExistingUser(username.value, password.value).then(res => {
         if (res.errors) {
             createAndDisplayPopup(res.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)');
-            enableElements();
+            enableInputsAndButton(document.querySelector('form'));
         } else {
             storeCredentials(res.data.id, username.value, password.value);
             checkSession();
         }
     });
-
-    enableInputsAndButton(document.querySelector('form'));
 }
