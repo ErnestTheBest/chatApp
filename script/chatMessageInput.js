@@ -19,6 +19,8 @@ function toggleMessageInput() {
         messageWindow.classList.add('hidden');
     } else {
         messageWindow.classList.remove('hidden');
+
+        getUserStatus(sessionStorage.chatContextId) === 'offline' ?  disableInputsAndButton(messageWindow) : enableInputsAndButton(messageWindow);
     }
 }
 
