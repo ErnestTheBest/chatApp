@@ -1,10 +1,24 @@
-let latestMessageUpdate = +new Date;
+let latestMessageUpdate = {};
+
+// Store initial state if messages on startup
+getChatsUpdate().then(({ data }) => {
+    console.log(data);
+    data.filter(e => e.created_at !== null)
+        .forEach(element => {
+            latestMessageUpdate[element.user_id] = +new Date(element.created_at);
+        });
+});
+
+
+// 1. Fetch all messages object
+// 2. Filter out users that didn't message me
+// 3. Figure out if contact is on my contact list
 
 function checkNewMessages() {
 
-    // This object is needed to check for messages from existing contacts
+    // Get all user ids that are in my contacts list. Timestamp is redundant. Just wanned to practice with objects
     let contactIds = {};
-    contactsList.querySelectorAll('li').forEach(e => contactIds[e.id] = latestMessageUpdate);
+    contactsList.querySelectorAll('li').forEach(e => contactIds[e.id] = Date.now());
 
     getChatsUpdate().then(({ data }) => {
         let result = {};
@@ -19,12 +33,16 @@ function checkNewMessages() {
         let newUsers = [];
 
         Object.entries(result).forEach(e => {
+            // Filter every message
             let [userId, createdAt] = e;
-            if (latestMessageUpdate < createdAt) {
-                if (!contactIds.hasOwnProperty(userId)) {
-                    newMessages.push(parseInt(userId));
-                    newUsers.push(parseInt(userId));
-                } else { newMessages.push(parseInt(userId)) }
+
+            // If contacts is all new or writen to use a new message and is not on contacts list
+            if (!latestMessageUpdate.hasOwnProperty(userId) ||
+                (latestMessageUpdate[`${userId}`] < createdAt && !contactIds.hasOwnProperty(userId))) {
+                newMessages.push(parseInt(userId));
+                newUsers.push(parseInt(userId));
+            } else if (latestMessageUpdate[`${userId}`] < createdAt) {
+                newMessages.push(parseInt(userId));
             }
         });
 
@@ -41,6 +59,6 @@ function checkNewMessages() {
         } else {
             markNewMessages(newMessages);
         }
-        latestMessageUpdate = Date.now() - 5000;
+        latestMessageUpdate = result;
     })
 }
