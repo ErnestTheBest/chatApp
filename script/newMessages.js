@@ -18,7 +18,7 @@ function checkNewMessages() {
 
     // Get all user ids that are in my contacts list. Timestamp is redundant. Just wanned to practice with objects
     let contactIds = {};
-    contactsList.querySelectorAll('li').forEach(e => contactIds[e.id] = Date.now());
+    contactsList.querySelectorAll('li').forEach(e => contactIds[e.getAttribute('data-id')] = Date.now());
 
     getChatsUpdate().then(({ data }) => {
         let result = {};

@@ -13,19 +13,19 @@ function addListConcact(contactId, username, name = undefined, isFavorite = fals
         favorite.title = 'Remove favorite';
         favorite.textContent = 'person_add_disabled';
         favorite.addEventListener('click', function () {
-            removeContact(favorite.parentNode.id);
+            removeContact(favorite.parentNode.getAttribute('data-id'));
             setTimeout(defineContactList, 500);
         })
     } else {
         favorite.title = 'Add favorite';
         favorite.textContent = 'person_add';
         favorite.addEventListener('click', function () {
-            addContact(favorite.parentNode.id);
+            addContact(favorite.parentNode.getAttribute('data-id'));
             setTimeout(defineContactList, 500);
         })
     }
 
-    element.id = contactId;
+    element.setAttribute('data-id', contactId);
     element.appendChild(span);
     element.appendChild(favorite);
 
@@ -78,7 +78,7 @@ function setActiveContact(elem) {
         elem.classList.toggle(('active-contact'));
     }
 
-    setChatContext(elem.id, elem.querySelector('span').innerText);
+    setChatContext(elem.getAttribute('data-id'), elem.querySelector('span').innerText);
     setChatContextNameAndStatus();
     toggleMessageInput();
     printChatMessages();
@@ -97,21 +97,21 @@ function defineContactList() {
     }).then(()=> {
         if (sessionStorage.chatContextId) {
             // TODO: This will be bugged if last open chat was with someone not in contact list
-            document.getElementById(sessionStorage.chatContextId).classList.add('active-contact');
+            document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`).classList.add('active-contact');
         }
     });
 }
 
 function updateContactsListStatuses() {
     contactsList.querySelectorAll('li').forEach(e => {
-        updateSpanStatus(e.querySelector('span'), e.id);
+        updateSpanStatus(e.querySelector('span'), e.getAttribute('data-id'));
     })
 }
 
 function markNewMessages(userIdsArr) {
     for (const newMessageUserId of userIdsArr) {
         // <span class="new-message"></span>
-        let elem = document.getElementById(newMessageUserId);
+        let elem = document.querySelector(`[data-id="${newMessageUserId}"]`);
         let marker = elem.querySelector('.new-message');
         if (!elem.classList.contains('active-contact') && !marker) {
             let spa = document.createElement('span');

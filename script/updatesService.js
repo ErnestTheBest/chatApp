@@ -3,7 +3,7 @@ let messageServicePolled = false;
 function pingPong() {
     return ping().then(() => {
 
-        console.log('pong');
+        // console.log('pong');
         setTimeout(pingPong, 10000);
     })
 }
@@ -11,7 +11,7 @@ function pingPong() {
 
 function launchMessageUpdateService() {
     if (messageServicePolled) {
-        console.log('Message updates service already polled');
+        // console.log('Message updates service already polled');
         return;
     }
 
@@ -37,7 +37,7 @@ function runMessageUpdateService() {
 function runUserStatusService() {
     return getAllUsersList().then(res => {
         setUserStatuses(JSON.stringify(mapUserStatuses(res.data)));
-        console.log('User status update service running');
+        // console.log('User status update service running');
         setTimeout(runUserStatusService, 10000);
     })
 }
@@ -46,12 +46,12 @@ function runUserStatusUpdateService() {
     updateContactsListStatuses();
     updateChatContextStatus();
     updateMessagesListStatuses();
-    console.log('Elements status update service running');
+    // console.log('Elements status update service running');
     setTimeout(runUserStatusUpdateService, 10000);
 }
 
 function runNewMessagesUpdateService() {
-    console.log('New message update service running');
+    // console.log('New message update service running');
     checkNewMessages();
     setTimeout(runNewMessagesUpdateService, 3000);
 }
