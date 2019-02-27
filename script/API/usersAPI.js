@@ -22,20 +22,17 @@ function registerNewUser(userName, pass) {
     });
 }
 
-function updateUserProfile(name, pass) {
-    if (!name && !pass) {
-        return new Error('No values were passed for user update.')
-    }
-
+function updateUserProfile(name, password = undefined) {
     return fetch(`${defaultUrl}/users/${window.sessionStorage.userId}`, {
         method: 'PUT',
         headers: {
             Authorization: `Basic ${window.sessionStorage.credentials}`,
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name, password: pass })
+        body: JSON.stringify({ name, password })
     }).then(res => {
-        return res.json();
+        console.log(res);
+        return res.ok;
     });
 }
 
@@ -45,6 +42,17 @@ function loginExistingUser(userName, pass) {
             Authorization: `Basic ${btoa(`${userName}:${pass}`)}`
         }
     }).then(res => {
+        return res.json();
+    });
+}
+
+function getLoggedInUserInfo() {
+    return fetch(`${defaultUrl}/me`, {
+        headers: {
+            Authorization: `Basic ${window.sessionStorage.credentials}`
+        }
+    }).then(res => {
+        console.log(res);
         return res.json();
     });
 }

@@ -1,5 +1,3 @@
-* Fix IDs. They can't start with number
-* Populate profile page with data. Readonly field with login
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 * Mobile viewport should not include address bar (100vh -> 100%)
 
@@ -9,6 +7,9 @@
 * On search determine if contact is already favorite or not
 
 ----- DONE -----
+* Profile page update fetch
+* Populate profile page with data. Readonly field with login
+* Fix IDs. They can't start with number
 * Refactor new messages service. Keep previous info
 * Block writing to offline users
 * Lock mechanism for input and form fields
