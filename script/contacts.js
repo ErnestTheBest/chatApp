@@ -85,6 +85,10 @@ function setActiveContact(elem) {
     removeNewMessageMarker(elem);
 
     launchMessageUpdateService();
+
+    // Close mobile menu
+    menuButton.classList.remove('toggle');
+    container.classList.remove('menu-open');
 }
 
 function defineContactList() {
