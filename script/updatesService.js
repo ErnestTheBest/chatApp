@@ -1,9 +1,15 @@
+let runningServices = {
+    'pingPongService': false,
+    'userStatusService': false,
+    'messagesUpdateService': false,
+    'userStatusUpdateService': false,
+    'newMessagesUpdateService': false
+}
 let messageServicePolled = false;
 
 function pingPong() {
+    if (!runningServices.pingPongService) runningServices.pingPongService = true;
     return ping().then(() => {
-
-        // console.log('pong');
         setTimeout(pingPong, 10000);
     })
 }
@@ -11,7 +17,6 @@ function pingPong() {
 
 function launchMessageUpdateService() {
     if (messageServicePolled) {
-        // console.log('Message updates service already polled');
         return;
     }
 
@@ -20,6 +25,7 @@ function launchMessageUpdateService() {
 }
 
 function runMessageUpdateService() {
+    if (!runningServices.messagesUpdateService) runningServices.messagesUpdateService = true;
     return getMessages().then(res => {
         try {
             if (res.data.length) {
@@ -35,23 +41,23 @@ function runMessageUpdateService() {
 }
 
 function runUserStatusService() {
+    if (!runningServices.userStatusService) runningServices.userStatusService = true;
     return getAllUsersList().then(res => {
         setUserStatuses(JSON.stringify(mapUserStatuses(res.data)));
-        // console.log('User status update service running');
         setTimeout(runUserStatusService, 10000);
     })
 }
 
 function runUserStatusUpdateService() {
+    if (!runningServices.userStatusUpdateService) runningServices.userStatusUpdateService = true;
     updateContactsListStatuses();
     updateChatContextStatus();
     updateMessagesListStatuses();
-    // console.log('Elements status update service running');
     setTimeout(runUserStatusUpdateService, 10000);
 }
 
 function runNewMessagesUpdateService() {
-    // console.log('New message update service running');
+    if (!runningServices.newMessagesUpdateService) runningServices.newMessagesUpdateService = true;
     checkNewMessages();
     setTimeout(runNewMessagesUpdateService, 3000);
 }
