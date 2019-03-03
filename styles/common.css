@@ -27,6 +27,12 @@ button:disabled, input[type=text]:disabled, input[type=password]:disabled {
     background: lightgray;
 }
 
+button:disabled {
+    border: solid;
+    border-color: lightgray;
+    border-width: 4px;
+}
+
 #center {
     width: 320px;
     text-align: center;

@@ -36,4 +36,4 @@
 ----- BUG -----
 * Html, Body, Container 100% for mobile version
 * Buttons must not move around. Align them to fixed positions.
-* Border on disabled button should be consistent colo with button.
+* Border on disabled button should be consistent colour with button
