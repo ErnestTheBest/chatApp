@@ -5,7 +5,7 @@ function setChatContextNameAndStatus() {
     // 2. If there is one, open chat etc.
     // 3. If undefined then set text to Welcome to chatApp! and display logo.
 
-    if (sessionStorage.chatContextName) {
+    if (sessionStorage.chatContextId) {
         chatContextName.textContent = sessionStorage.chatContextName;
         updateChatContextStatus();
     } else {
@@ -15,5 +15,5 @@ function setChatContextNameAndStatus() {
 }
 
 function updateChatContextStatus() {
-    updateSpanStatus(chatContextName, sessionStorage.chatContextId);
+    if (sessionStorage.chatContextId) updateSpanStatus(chatContextName, sessionStorage.chatContextId);
 }

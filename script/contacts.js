@@ -55,7 +55,6 @@ function setActiveContact(elem) {
 
     // I feel ashamed for this if()
     if (elem.target.nodeName !== 'I') {
-        console.log(elem);
         if (elem.target.nodeName === 'SPAN') {
             elem = elem.target.parentNode;
         } else {
