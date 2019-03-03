@@ -31,7 +31,6 @@ function updateUserProfile(name, password = undefined) {
         },
         body: JSON.stringify({ name, password })
     }).then(res => {
-        console.log(res);
         return res.ok;
     });
 }

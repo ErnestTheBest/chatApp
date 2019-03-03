@@ -9,7 +9,7 @@ populateForm();
 
 document.getElementById('cancel').addEventListener('click', function (event) {
     event.preventDefault()
-    window.location.replace('./chat.html');
+    redirectCoChat();
 });
 
 document.addEventListener('submit', function (event) {
@@ -55,7 +55,10 @@ function updateProfile() {
         //2. If 1 is true, then send data to server.
 
         disableInputsAndButton(document.querySelector('form'));
-        updateUserProfile(displayName.value).then(createAndDisplayPopup('Display name changed', '#82df1b'));
+        updateUserProfile(displayName.value).then(res => {
+            createAndDisplayPopup('Display name changed', '#82df1b');
+            setTimeout(redirectCoChat, 1500);
+        });
         enableInputsAndButton(document.querySelector('form'));
     }
 }
@@ -66,4 +69,8 @@ function populateForm() {
         userLogin.textContent = data.username;
         if (data.name) displayName.value = data.name;
     })
+}
+
+function redirectCoChat() {
+    window.location.replace('./chat.html');
 }
