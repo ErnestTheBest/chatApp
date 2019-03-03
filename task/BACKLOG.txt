@@ -31,9 +31,9 @@
 * Welcome to chatapp remove status
 * Don't show your self in contacts (even after search)
 * You are not sent back on name change
+* Remove chat.html mock data
 
 ----- BUG -----
-* Remove chat.html mock data.
 * Html, Body, Container 100% for mobile version
 * Buttons must not move around. Align them to fixed positions.
 * Border on disabled button should be consistent colo with button.
