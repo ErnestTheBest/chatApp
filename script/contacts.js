@@ -1,6 +1,9 @@
 let contactsList = document.querySelector('.contacts-list');
 
 function addListConcact(contactId, username, name = undefined, isFavorite = false) {
+
+    if (sessionStorage.userId == contactId) return;
+
     let element = document.createElement('li');
     let span = document.createElement('span');
 

@@ -29,9 +29,9 @@
 * Due to 5 sec delay for new messages, if switched immidiately after new msg, indisator pops up
 * Safari. Use event.target.parentNode instead of path.
 * Welcome to chatapp remove status
+* Don't show your self in contacts (even after search)
 
 ----- BUG -----
-* Don't show your self in contacts (even after search)
 * You are not sent back on name change
 * Remove chat.html mock data.
 * Html, Body, Container 100% for mobile version
