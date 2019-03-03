@@ -30,4 +30,4 @@ function initChat() {
 };
 
 // TODO: Add try catch?
-// initChat();
+initChat();
