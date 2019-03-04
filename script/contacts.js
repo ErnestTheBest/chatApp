@@ -42,6 +42,7 @@ function createContactList(contactsArray, areFavorite = false) {
     for (const contact of contactsArray) {
         addListConcact(contact.id, contact.username, contact.name, areFavorite);
     }
+    return true;
 }
 
 function clearContactList() {
@@ -92,6 +93,10 @@ function setActiveContact(elem) {
     // Close mobile menu
     menuButton.classList.remove('toggle');
     container.classList.remove('menu-open');
+
+    // Clear input and redefine contacts list
+    searchInput.value = '';
+    defineContactList();
 }
 
 function defineContactList() {
@@ -99,12 +104,12 @@ function defineContactList() {
         if (!res.data.length) {
             getAllUsersList().then(res => createContactList(res.data));
         } else { createContactList(res.data, true) };
-
-        
-    }).then(()=> {
+    }).then(resul=> {
         if (sessionStorage.chatContextId) {
             // TODO: This will be bugged if last open chat was with someone not in contact list
-            document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`).classList.add('active-contact');
+            let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`)
+            console.log(elem);
+            elem.classList.add('active-contact');
         }
     });
 }

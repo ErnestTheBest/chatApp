@@ -1,5 +1,4 @@
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
-* Mobile viewport should not include address bar (100vh -> 100%)
 
 ----- FANCY -----
 * Sort contacts alphabetically(Comparator)
@@ -7,6 +6,7 @@
 * On search determine if contact is already favorite or not
 
 ----- DONE -----
+* Mobile viewport should not include address bar (100vh -> 100%)
 * When you click on mobile contact, menu should close
 * Profile page update fetch
 * Populate profile page with data. Readonly field with login
