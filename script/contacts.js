@@ -39,10 +39,13 @@ function addListConcact(contactId, username, name = undefined, isFavorite = fals
 
 function createContactList(contactsArray, areFavorite = false) {
     clearContactList();
-    for (const contact of contactsArray) {
-        addListConcact(contact.id, contact.username, contact.name, areFavorite);
-    }
-    return true;
+    let promise = new Promise(function (resolve, reject) {
+        for (const contact of contactsArray) {
+            addListConcact(contact.id, contact.username, contact.name, areFavorite);
+        }
+    });
+
+    return promise;
 }
 
 function clearContactList() {
@@ -97,15 +100,16 @@ function setActiveContact(elem) {
     // Clear input and redefine contacts list
     searchInput.value = '';
     // how to handle promises?
-    // defineContactList();
+    defineContactList();
 }
 
 function defineContactList() {
     getContactsList().then(res => {
         if (!res.data.length) {
-            getAllUsersList().then(res => createContactList(res.data));
-        } else { createContactList(res.data, true) };
-    }).then(resul=> {
+            getAllUsersList().then(res => {return createContactList(res.data)});
+        } else { return createContactList(res.data, true) };
+    }).then(res => {
+        console.log(res);
         if (sessionStorage.chatContextId) {
             // TODO: This will be bugged if last open chat was with someone not in contact list
             let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`)
