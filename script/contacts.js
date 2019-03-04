@@ -96,7 +96,8 @@ function setActiveContact(elem) {
 
     // Clear input and redefine contacts list
     searchInput.value = '';
-    defineContactList();
+    // how to handle promises?
+    // defineContactList();
 }
 
 function defineContactList() {
