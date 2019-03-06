@@ -43,6 +43,7 @@ function createContactList(contactsArray, areFavorite = false) {
         for (const contact of contactsArray) {
             addListConcact(contact.id, contact.username, contact.name, areFavorite);
         }
+        resolve();
     });
 
     return promise;
@@ -106,13 +107,12 @@ function setActiveContact(elem) {
 function defineContactList() {
     getContactsList().then(res => {
         if (!res.data.length) {
-            getAllUsersList().then(res => {return createContactList(res.data)});
+            return getAllUsersList().then(res => {return createContactList(res.data)});
         } else { return createContactList(res.data, true) };
-    }).then(res => {
-        console.log(res);
+    }).then(()=> {
         if (sessionStorage.chatContextId) {
             // TODO: This will be bugged if last open chat was with someone not in contact list
-            let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`)
+            let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`);
             console.log(elem);
             elem.classList.add('active-contact');
         }
