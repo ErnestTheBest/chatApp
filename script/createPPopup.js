@@ -15,3 +15,5 @@ function createAndDisplayPopup(text, background) {
     element.style.background = background;
     element.classList.add('error-message');
 }
+
+export { createAndDisplayPopup };

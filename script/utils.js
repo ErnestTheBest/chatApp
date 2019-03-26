@@ -3,18 +3,20 @@ function updateSpanStatus(elem, userId) {
     elem.classList.add(`status-${getUserStatus(userId)}`);
 }
 
-function disableInputsAndButton(parentElement) {
-    inputs = parentElement.querySelectorAll('input');
-    buttons = parentElement.querySelectorAll('button');
+function enableInputsAndButton(parentElement) {
+    let inputs = parentElement.querySelectorAll('input');
+    let buttons = parentElement.querySelectorAll('button');
+
+    inputs.forEach(inp => inp.removeAttribute('disabled'));
+    buttons.forEach(btn => btn.removeAttribute('disabled'));
+}
+
+export function disableInputsAndButton(parentElement) {
+    let inputs = parentElement.querySelectorAll('input');
+    let buttons = parentElement.querySelectorAll('button');
 
     inputs.forEach(inp => inp.disabled = true);
     buttons.forEach(btn => btn.disabled = true);
 }
 
-function enableInputsAndButton(parentElement) {
-    inputs = parentElement.querySelectorAll('input');
-    buttons = parentElement.querySelectorAll('button');
-
-    inputs.forEach(inp => inp.removeAttribute('disabled'));
-    buttons.forEach(btn => btn.removeAttribute('disabled'));
-}
+export {updateSpanStatus, enableInputsAndButton};

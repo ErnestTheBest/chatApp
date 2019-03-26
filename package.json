@@ -1,0 +1,23 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Demo chat application",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErnestTheBest/chatApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErnestTheBest/chatApp/issues"
+  },
+  "homepage": "https://github.com/ErnestTheBest/chatApp#readme",
+  "devDependencies": {
+    "webpack": "4.29.6",
+    "webpack-cli": "3.3.0"
+  }
+}

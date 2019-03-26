@@ -38,3 +38,5 @@ function setUserStatuses(userStatuses) {
 function setChatsUpdates(chatUpdates) {
     window.sessionStorage.setItem('chatUpdates', chatUpdates);
 }
+
+export {checkSession, logout, storeCredentials, setChatContext, setUserStatuses, setChatsUpdates};

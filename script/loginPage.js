@@ -1,15 +1,21 @@
+import {checkSession} from "./session";
+
 checkSession();
 
-let inputs = Array.from(document.querySelectorAll('form input'));
-let username = document.getElementById('username');
-let password = document.getElementById('password');
-let signin = document.getElementById('sign-in');
+import {createAndDisplayPopup} from "./createPPopup";
+import {enableInputsAndButton, disableInputsAndButton} from "./utils";
+import {loginExistingUser} from "./API/usersAPI";
+import {storeCredentials} from "./session";
+
+const inputs = Array.from(document.querySelectorAll('form input'));
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+//const signin = document.getElementById('sign-in');
 
 document.getElementsByTagName('form')[0].addEventListener('submit', function (event) {
     event.preventDefault();
     validateAndLogin();
 });
-
 
 function valid() {
     createAndDisplayPopup('Good boy', '#82df1b');
@@ -29,7 +35,7 @@ function notValid() {
 
 function validateAndLogin() {
     inputs.every(e => e.value) ? valid() : notValid();
-    
+
     disableInputsAndButton(document.querySelector('form'));
     loginExistingUser(username.value, password.value).then(res => {
         if (res.errors) {

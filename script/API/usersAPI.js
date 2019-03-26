@@ -55,3 +55,5 @@ function getLoggedInUserInfo() {
         return res.json();
     });
 }
+
+export {getAllUsersList, registerNewUser, updateUserProfile, loginExistingUser, getLoggedInUserInfo};
