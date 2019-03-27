@@ -1,4 +1,4 @@
-function mapUserStatuses(users) {
+export function mapUserStatuses(users) {
     let now = new Date();
     let userStatuses = [];
 
@@ -6,7 +6,7 @@ function mapUserStatuses(users) {
      * Users example
      * {id: 4, username: "eeee", name: null, seen_at: "2019-02-13T19:51:24.913Z"}
      */
-    for (user of users) {
+    for (const user of users) {
         if (user.seen_at) {
             let lastActive = now - new Date(user.seen_at);
 
@@ -26,7 +26,7 @@ function mapUserStatuses(users) {
     return userStatuses;
 }
 
-function getUserStatus(userId) {
+export function getUserStatus(userId) {
     let userStatuses = JSON.parse(sessionStorage.userStatuses);
     /**
      * UserStatuses is an array in sessionstorage {id : "status"}

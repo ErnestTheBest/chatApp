@@ -24,7 +24,7 @@
   }, n.n = function (e) {
     var t = e && e.__esModule ? function () {return e.default} : function () {return e}
     return n.d(t, 'a', t), t
-  }, n.o = function (e, t) {return Object.prototype.hasOwnProperty.call(e, t)}, n.p = '', n(n.s = 4)
+  }, n.o = function (e, t) {return Object.prototype.hasOwnProperty.call(e, t)}, n.p = '', n(n.s = 5)
 }([function (e, t, n) {
   'use strict'
 
@@ -73,12 +73,12 @@
   }
 
   function u (e, t) {return fetch(''.concat(r, '/me'), {headers: {Authorization: 'Basic '.concat(btoa(''.concat(e, ':').concat(t)))}}).then(function (e) {return e.json()})}
-}, function (e, t, n) {
+}, , function (e, t, n) {
   'use strict'
   n.r(t)
-  var r = n(0), o = n(1), u = n(2), c = n(3)
-  Object(r.a)(), document.getElementsByTagName('form')[0].addEventListener('submit', function (e) {
-    var t, n, i
-    e.preventDefault(), t = Array.from(document.querySelectorAll('form input')), n = document.getElementById('username'), i = document.getElementById('password'), t.every(function (e) {return e.value}) ? function (e) {Object(o.a)('Good boy', '#82df1b'), e.forEach(function (e) {return e.classList.remove('error')})}(t) : function (e) {Object(o.a)('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)'), e.forEach(function (e) {e.value ? e.classList.remove('error') : e.classList.add('error')})}(t), Object(u.a)(document.querySelector('form')), Object(c.a)(n.value, i.value).then(function (e) {e.errors ? (Object(o.a)(e.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)'), Object(u.b)(document.querySelector('form'))) : (Object(r.b)(e.data.id, n.value, i.value), Object(r.a)())})
+  var r = n(0), o = n(2), u = n(3), c = n(1)
+  Object(r.a)(), document.addEventListener('submit', function (e) {
+    var t, n, i, a
+    e.preventDefault(), t = Array.from(document.querySelectorAll('form input')), n = document.getElementById('username'), i = document.getElementById('password'), a = document.getElementById('confirm-password'), function (e) {return e.every(function (e) {return e.value})}(t) ? function (e, t) {return e.value === t.value}(i, a) ? (function (e) {Object(c.a)('Good boy', '#82df1b'), e.forEach(function (e) {return e.classList.remove('error')})}(t), Object(o.a)(document.querySelector('form')), Object(u.b)(n.value, i.value).then(function (e) {e.errors ? (Object(c.a)(e.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)'), Object(o.b)(document.querySelector('form'))) : (Object(r.b)(e.data.id, n.value, i.value), Object(r.a)())})) : function (e, t) {Object(c.a)('Passwords do not match', 'linear-gradient(#f95062, #df251b)'), e.classList.add('error'), t.classList.add('error')}(i, a) : function (e) {Object(c.a)('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)'), e.forEach(function (e) {e.value ? e.classList.remove('error') : e.classList.add('error')})}()
   })
 }])

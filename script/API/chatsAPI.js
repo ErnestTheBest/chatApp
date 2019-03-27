@@ -1,4 +1,4 @@
-let chatsUrl = `https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/chats`
+let chatsUrl = `https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/chats`;
 
 function getChatsUpdate() {
     return fetch(chatsUrl, {
