@@ -28,6 +28,15 @@
 }([function (e, t, n) {
   'use strict'
 
+  function r (e, t) {
+    var n
+    document.querySelector('.error-message') ? n = document.querySelector('.error-message') : (n = document.createElement('div'), document.body.appendChild(n), n.addEventListener('click', function (e) {document.body.removeChild(document.querySelector('.error-message'))})), n.textContent = e, n.style.background = t, n.classList.add('error-message')
+  }
+
+  n.d(t, 'a', function () {return r})
+}, function (e, t, n) {
+  'use strict'
+
   function r () {
     var e = window.location.pathname
     window.sessionStorage.getItem('userId') ? (e.includes('/index.html') || e.includes('/register.html')) && window.location.replace('./chat.html') : e.includes('/index.html') || e.includes('/register.html') || window.location.replace('./index.html')
@@ -36,15 +45,6 @@
   function o (e, t, n) {window.sessionStorage.setItem('userId', e), window.sessionStorage.setItem('credentials', btoa(''.concat(t, ':').concat(n)))}
 
   n.d(t, 'a', function () {return r}), n.d(t, 'b', function () {return o})
-}, function (e, t, n) {
-  'use strict'
-
-  function r (e, t) {
-    var n
-    document.querySelector('.error-message') ? n = document.querySelector('.error-message') : (n = document.createElement('div'), document.body.appendChild(n), n.addEventListener('click', function (e) {document.body.removeChild(document.querySelector('.error-message'))})), n.textContent = e, n.style.background = t, n.classList.add('error-message')
-  }
-
-  n.d(t, 'a', function () {return r})
 }, function (e, t, n) {
   'use strict'
 
@@ -61,7 +61,7 @@
   n.d(t, 'b', function () {return r}), n.d(t, 'a', function () {return o})
 }, function (e, t, n) {
   'use strict'
-  n.d(t, 'b', function () {return o}), n.d(t, 'a', function () {return u})
+  n.d(t, 'c', function () {return o}), n.d(t, 'd', function () {return c}), n.d(t, 'b', function () {return u}), n.d(t, 'a', function () {return i})
   var r = 'https://ernestthebest.herokuapp.com'
 
   function o (e, t) {
@@ -72,13 +72,24 @@
     }).then(function (e) {return e.json()})
   }
 
+  function c (e) {
+    var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0
+    return fetch(''.concat(r, '/users/').concat(window.sessionStorage.userId), {
+      method: 'PUT',
+      headers: {Authorization: 'Basic '.concat(window.sessionStorage.credentials), 'Content-Type': 'application/json'},
+      body: JSON.stringify({name: e, password: t})
+    }).then(function (e) {return e.ok})
+  }
+
   function u (e, t) {return fetch(''.concat(r, '/me'), {headers: {Authorization: 'Basic '.concat(btoa(''.concat(e, ':').concat(t)))}}).then(function (e) {return e.json()})}
+
+  function i () {return fetch(''.concat(r, '/me'), {headers: {Authorization: 'Basic '.concat(window.sessionStorage.credentials)}}).then(function (e) {return console.log(e), e.json()})}
 }, function (e, t, n) {
   'use strict'
   n.r(t)
-  var r = n(0), o = n(1), u = n(2), c = n(3)
+  var r = n(1), o = n(0), c = n(2), u = n(3)
   Object(r.a)(), document.getElementsByTagName('form')[0].addEventListener('submit', function (e) {
     var t, n, i
-    e.preventDefault(), t = Array.from(document.querySelectorAll('form input')), n = document.getElementById('username'), i = document.getElementById('password'), t.every(function (e) {return e.value}) ? function (e) {Object(o.a)('Good boy', '#82df1b'), e.forEach(function (e) {return e.classList.remove('error')})}(t) : function (e) {Object(o.a)('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)'), e.forEach(function (e) {e.value ? e.classList.remove('error') : e.classList.add('error')})}(t), Object(u.a)(document.querySelector('form')), Object(c.a)(n.value, i.value).then(function (e) {e.errors ? (Object(o.a)(e.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)'), Object(u.b)(document.querySelector('form'))) : (Object(r.b)(e.data.id, n.value, i.value), Object(r.a)())})
+    e.preventDefault(), t = Array.from(document.querySelectorAll('form input')), n = document.getElementById('username'), i = document.getElementById('password'), t.every(function (e) {return e.value}) ? function (e) {Object(o.a)('Good boy', '#82df1b'), e.forEach(function (e) {return e.classList.remove('error')})}(t) : function (e) {Object(o.a)('Mandatory values must be entered', 'linear-gradient(#f95062, #df251b)'), e.forEach(function (e) {e.value ? e.classList.remove('error') : e.classList.add('error')})}(t), Object(c.a)(document.querySelector('form')), Object(u.b)(n.value, i.value).then(function (e) {e.errors ? (Object(o.a)(e.errors[0].title.replace('data.', ''), 'linear-gradient(#f95062, #df251b)'), Object(c.b)(document.querySelector('form'))) : (Object(r.b)(e.data.id, n.value, i.value), Object(r.a)())})
   })
 }])

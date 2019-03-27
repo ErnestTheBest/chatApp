@@ -1,4 +1,4 @@
-function createAndDisplayPopup(text, background) {
+export function createAndDisplayPopup(text, background) {
     let element;
 
     if (document.querySelector('.error-message')) {
@@ -15,5 +15,3 @@ function createAndDisplayPopup(text, background) {
     element.style.background = background;
     element.classList.add('error-message');
 }
-
-export { createAndDisplayPopup };

@@ -2,7 +2,8 @@ module.exports = {
   mode: 'production',
   entry: {
     login: './script/loginPage.js',
-    register: './script/registrationPage.js'
+    register: './script/registrationPage.js',
+    profile: './script/profilePage.js'
   },
   module: {
     rules: [
