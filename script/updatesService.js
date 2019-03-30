@@ -7,7 +7,7 @@ let runningServices = {
 }
 let messageServicePolled = false;
 
-function pingPong() {
+export function pingPong() {
     if (!runningServices.pingPongService) runningServices.pingPongService = true;
     return ping().then(() => {
         setTimeout(pingPong, 10000);
@@ -15,7 +15,7 @@ function pingPong() {
 }
 
 
-function launchMessageUpdateService() {
+export function launchMessageUpdateService() {
     if (messageServicePolled) {
         return;
     }
@@ -24,7 +24,7 @@ function launchMessageUpdateService() {
     runMessageUpdateService();
 }
 
-function runMessageUpdateService() {
+export function runMessageUpdateService() {
     if (!runningServices.messagesUpdateService) runningServices.messagesUpdateService = true;
     return getMessages().then(res => {
         try {
@@ -40,7 +40,7 @@ function runMessageUpdateService() {
     });
 }
 
-function runUserStatusService() {
+export function runUserStatusService() {
     if (!runningServices.userStatusService) runningServices.userStatusService = true;
     return getAllUsersList().then(res => {
         setUserStatuses(JSON.stringify(mapUserStatuses(res.data)));
@@ -48,7 +48,7 @@ function runUserStatusService() {
     })
 }
 
-function runUserStatusUpdateService() {
+export function runUserStatusUpdateService() {
     if (!runningServices.userStatusUpdateService) runningServices.userStatusUpdateService = true;
     updateContactsListStatuses();
     updateChatContextStatus();
@@ -56,7 +56,7 @@ function runUserStatusUpdateService() {
     setTimeout(runUserStatusUpdateService, 10000);
 }
 
-function runNewMessagesUpdateService() {
+export function runNewMessagesUpdateService() {
     if (!runningServices.newMessagesUpdateService) runningServices.newMessagesUpdateService = true;
     checkNewMessages();
     setTimeout(runNewMessagesUpdateService, 3000);

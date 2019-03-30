@@ -50,7 +50,7 @@ function checkNewMessages() {
             getAllUsersList().then(({ data }) => {
                 data.forEach(e => {
                     if (newUsers.includes(e.id)) {
-                        addListConcact(e.id, e.username, e.name);
+                        addListContact(e.id, e.username, e.name);
                     }
                 });
 

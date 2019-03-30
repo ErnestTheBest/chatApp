@@ -1,144 +1,151 @@
-let contactsList = document.querySelector('.contacts-list');
+import { setChatContext } from './session'
+import { setChatContextNameAndStatus } from './chatContext'
+import { toggleMessageInput } from './chatMessageInput'
+import { printChatMessages } from './chatMessages'
+import { launchMessageUpdateService } from './updatesService'
 
-function addListConcact(contactId, username, name = undefined, isFavorite = false) {
+let contactsList = document.querySelector('.contacts-list')
 
-    if (sessionStorage.userId == contactId) return;
+export function addListContact (contactId, username, name = undefined, isFavorite = false) {
 
-    let element = document.createElement('li');
-    let span = document.createElement('span');
+  if (sessionStorage.userId == contactId) return
 
-    span.classList.add('status', `status-${getUserStatus(contactId)}`);
+  let element = document.createElement('li')
+  let span = document.createElement('span')
 
-    name ? span.textContent = name : span.textContent = username;
-    let favorite = document.createElement('i');
-    favorite.classList.add('material-icons', 'w3-large');
-    if (isFavorite) {
-        favorite.title = 'Remove favorite';
-        favorite.textContent = 'person_add_disabled';
-        favorite.addEventListener('click', function () {
-            removeContact(favorite.parentNode.getAttribute('data-id'));
-            setTimeout(defineContactList, 500);
-        })
-    } else {
-        favorite.title = 'Add favorite';
-        favorite.textContent = 'person_add';
-        favorite.addEventListener('click', function () {
-            addContact(favorite.parentNode.getAttribute('data-id'));
-            setTimeout(defineContactList, 500);
-        })
-    }
+  span.classList.add('status', `status-${getUserStatus(contactId)}`)
 
-    element.setAttribute('data-id', contactId);
-    element.appendChild(span);
-    element.appendChild(favorite);
-
-    element.addEventListener('click', setActiveContact);
-
-    contactsList.appendChild(element);
-}
-
-function createContactList(contactsArray, areFavorite = false) {
-    clearContactList();
-    let promise = new Promise(function (resolve, reject) {
-        for (const contact of contactsArray) {
-            addListConcact(contact.id, contact.username, contact.name, areFavorite);
-        }
-        resolve();
-    });
-
-    return promise;
-}
-
-function clearContactList() {
-    // Rad that it's faster than innerHTML
-    while (contactsList.firstChild) {
-        contactsList.removeChild(contactsList.firstChild);
-    }
-}
-
-function setActiveContact(elem) {
-    // 1. Is there active contact
-    // 2. Find out if active chat == chat that is beine selected
-    // 3. true - do nothing. false - toggle .active-contact on both list items
-
-    // I feel ashamed for this if()
-    if (elem.target.nodeName !== 'I') {
-        if (elem.target.nodeName === 'SPAN') {
-            elem = elem.target.parentNode;
-        } else {
-            elem = elem.target;
-        }
-    } else return;
-
-    // 1 
-    let exists = contactsList.querySelector('.active-contact');
-
-    if (exists) {
-        // 2
-        if (elem === exists) {
-            return;
-        } else {
-            // 3
-            elem.classList.toggle(('active-contact'));
-            exists.classList.toggle(('active-contact'));
-        }
-    } else {
-        elem.classList.toggle(('active-contact'));
-    }
-
-    setChatContext(elem.getAttribute('data-id'), elem.querySelector('span').innerText);
-    setChatContextNameAndStatus();
-    toggleMessageInput();
-    printChatMessages();
-    removeNewMessageMarker(elem);
-
-    launchMessageUpdateService();
-
-    // Close mobile menu
-    menuButton.classList.remove('toggle');
-    container.classList.remove('menu-open');
-
-    // Clear input and redefine contacts list
-    searchInput.value = '';
-    // how to handle promises?
-    defineContactList();
-}
-
-function defineContactList() {
-    getContactsList().then(res => {
-        if (!res.data.length) {
-            return getAllUsersList().then(res => {return createContactList(res.data)});
-        } else { return createContactList(res.data, true) };
-    }).then(()=> {
-        if (sessionStorage.chatContextId) {
-            // TODO: This will be bugged if last open chat was with someone not in contact list
-            let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`);
-            console.log(elem);
-            elem.classList.add('active-contact');
-        }
-    });
-}
-
-function updateContactsListStatuses() {
-    contactsList.querySelectorAll('li').forEach(e => {
-        updateSpanStatus(e.querySelector('span'), e.getAttribute('data-id'));
+  name ? span.textContent = name : span.textContent = username
+  let favorite = document.createElement('i')
+  favorite.classList.add('material-icons', 'w3-large')
+  if (isFavorite) {
+    favorite.title = 'Remove favorite'
+    favorite.textContent = 'person_add_disabled'
+    favorite.addEventListener('click', function () {
+      removeContact(favorite.parentNode.getAttribute('data-id'))
+      setTimeout(defineContactList, 500)
     })
+  } else {
+    favorite.title = 'Add favorite'
+    favorite.textContent = 'person_add'
+    favorite.addEventListener('click', function () {
+      addContact(favorite.parentNode.getAttribute('data-id'))
+      setTimeout(defineContactList, 500)
+    })
+  }
+
+  element.setAttribute('data-id', contactId)
+  element.appendChild(span)
+  element.appendChild(favorite)
+
+  element.addEventListener('click', setActiveContact)
+
+  contactsList.appendChild(element)
 }
 
-function markNewMessages(userIdsArr) {
-    for (const newMessageUserId of userIdsArr) {
-        // <span class="new-message"></span>
-        let elem = document.querySelector(`[data-id="${newMessageUserId}"]`);
-        let marker = elem.querySelector('.new-message');
-        if (!elem.classList.contains('active-contact') && !marker) {
-            let spa = document.createElement('span');
-            spa.className = 'new-message';
-            elem.querySelector('span').appendChild(spa);
-        }
+export function createContactList (contactsArray, areFavorite = false) {
+  clearContactList()
+  let promise = new Promise(function (resolve, reject) {
+    for (const contact of contactsArray) {
+      addListContact(contact.id, contact.username, contact.name, areFavorite)
     }
+    resolve()
+  })
+
+  return promise
 }
 
-function removeNewMessageMarker(el) {
-    let marker = el.querySelector('.new-message');
-    if (marker) marker.remove();
+export function clearContactList () {
+  // Rad that it's faster than innerHTML
+  while (contactsList.firstChild) {
+    contactsList.removeChild(contactsList.firstChild)
+  }
+}
+
+function setActiveContact (elem) {
+  // 1. Is there active contact
+  // 2. Find out if active chat == chat that is beine selected
+  // 3. true - do nothing. false - toggle .active-contact on both list items
+
+  // I feel ashamed for this if()
+  if (elem.target.nodeName !== 'I') {
+    if (elem.target.nodeName === 'SPAN') {
+      elem = elem.target.parentNode
+    } else {
+      elem = elem.target
+    }
+  } else return
+
+  // 1
+  let exists = contactsList.querySelector('.active-contact')
+
+  if (exists) {
+    // 2
+    if (elem === exists) {
+      return
+    } else {
+      // 3
+      elem.classList.toggle(('active-contact'))
+      exists.classList.toggle(('active-contact'))
+    }
+  } else {
+    elem.classList.toggle(('active-contact'))
+  }
+
+  setChatContext(elem.getAttribute('data-id'), elem.querySelector('span').innerText)
+  setChatContextNameAndStatus()
+  toggleMessageInput()
+  printChatMessages()
+  removeNewMessageMarker(elem)
+
+  launchMessageUpdateService()
+
+  // Close mobile menu
+  menuButton.classList.remove('toggle')
+  container.classList.remove('menu-open')
+
+  // Clear input and redefine contacts list
+  searchInput.value = ''
+  // how to handle promises?
+  defineContactList()
+}
+
+function defineContactList () {
+  getContactsList().then(res => {
+    if (!res.data.length) {
+      return getAllUsersList().then(res => {return createContactList(res.data)})
+    } else { return createContactList(res.data, true) }
+
+  }).then(() => {
+    if (sessionStorage.chatContextId) {
+      // TODO: This will be bugged if last open chat was with someone not in contact list
+      let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`)
+      console.log(elem)
+      elem.classList.add('active-contact')
+    }
+  })
+}
+
+function updateContactsListStatuses () {
+  contactsList.querySelectorAll('li').forEach(e => {
+    updateSpanStatus(e.querySelector('span'), e.getAttribute('data-id'))
+  })
+}
+
+function markNewMessages (userIdsArr) {
+  for (const newMessageUserId of userIdsArr) {
+    // <span class="new-message"></span>
+    let elem = document.querySelector(`[data-id="${newMessageUserId}"]`)
+    let marker = elem.querySelector('.new-message')
+    if (!elem.classList.contains('active-contact') && !marker) {
+      let spa = document.createElement('span')
+      spa.className = 'new-message'
+      elem.querySelector('span').appendChild(spa)
+    }
+  }
+}
+
+function removeNewMessageMarker (el) {
+  let marker = el.querySelector('.new-message')
+  if (marker) marker.remove()
 }
