@@ -1,12 +1,15 @@
-import {checkSession} from './session'
-import {runUserStatusService} from './updatesService'
+import { checkSession, logout } from './session'
+import { defineContactList } from './contacts'
+import { setChatContextNameAndStatus } from './chatContext'
+import { clearChatMessages, printChatMessages } from './chatMessages'
+import { toggleMessageInput } from './chatMessageInput'
+import { pingPong } from './API/ping'
+import { runUserStatusUpdateService, runNewMessagesUpdateService, launchMessageUpdateService, runUserStatusService } from './updatesService'
 
 checkSession()
 
-let menuButton = document.querySelector('.menu-button')
-
-menuButton.addEventListener('click', function () {
-  menuButton.classList.toggle('toggle')
+document.querySelector('.menu-button').addEventListener('click', function () {
+  document.querySelector('.menu-button').classList.toggle('toggle')
   document.querySelector('.container').classList.toggle('menu-open')
 })
 
@@ -24,7 +27,7 @@ function initChat () {
   setTimeout(runUserStatusUpdateService, 3000)
   setTimeout(runNewMessagesUpdateService, 3000)
 
-  if (sessionStorage.chatContextId) {
+  if (window.sessionStorage.chatContextId) {
     printChatMessages()
     launchMessageUpdateService()
   }

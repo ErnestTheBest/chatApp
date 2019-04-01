@@ -23,7 +23,7 @@ export function logout () {
 
 export function storeCredentials (userId, username, password) {
   window.sessionStorage.setItem('userId', userId)
-  window.sessionStorage.setItem('credentials', btoa(`${username}:${password}`))
+  window.sessionStorage.setItem('credentials', window.btoa(`${username}:${password}`))
 }
 
 export function setChatContext (chatId, chatName) {

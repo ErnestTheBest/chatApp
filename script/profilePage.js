@@ -17,17 +17,17 @@ document.addEventListener('submit', function (event) {
   updateProfile()
 })
 
-function valid (passwordOne, passwordTwo) {
-  createAndDisplayPopup('Good boy', '#82df1b')
-  passwordOne.classList.remove('error')
-  passwordTwo.classList.remove('error')
-}
+// function valid (passwordOne, passwordTwo) {
+//   createAndDisplayPopup('Good boy', '#82df1b')
+//   passwordOne.classList.remove('error')
+//   passwordTwo.classList.remove('error')
+// }
 
-function notValid (passwordOne, passwordTwo) {
-  createAndDisplayPopup('Passwords do not match', 'linear-gradient(#f95062, #df251b)')
-  passwordOne.classList.add('error')
-  passwordTwo.classList.add('error')
-}
+// function notValid (passwordOne, passwordTwo) {
+//   createAndDisplayPopup('Passwords do not match', 'linear-gradient(#f95062, #df251b)')
+//   passwordOne.classList.add('error')
+//   passwordTwo.classList.add('error')
+// }
 
 function checkPasswordsChanged () {
   // If password field is no empty
@@ -47,14 +47,14 @@ function checkPasswordsChanged () {
   return true
 }
 
-function fetchAccountUpdate () {
-  console.log('Account update is not implemented yet. Soon...')
-}
+// function fetchAccountUpdate () {
+//   console.log('Account update is not implemented yet. Soon...')
+// }
 
 function updateProfile () {
-  //1. Check if password fields are not empty and are equal.
+  // 1. Check if password fields are not empty and are equal.
   if (checkPasswordsChanged()) {
-    //2. If 1 is true, then send data to server.
+    // 2. If 1 is true, then send data to server.
 
     disableInputsAndButton(document.querySelector('form'))
     updateUserProfile(document.getElementById('display-name').value).then(() => {
@@ -66,7 +66,7 @@ function updateProfile () {
 }
 
 function populateForm (userLogin, displayName) {
-  getLoggedInUserInfo().then(({data}) => {
+  getLoggedInUserInfo().then(({ data }) => {
     console.log(data)
     userLogin.textContent = data.username
     if (data.name) displayName.value = data.name

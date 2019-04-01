@@ -1,11 +1,11 @@
-let chatsUrl = `https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/chats`;
+import { chatsUrl } from './endpoints'
 
-function getChatsUpdate() {
-    return fetch(chatsUrl, {
-        headers: {
-            Authorization: `Basic ${window.sessionStorage.credentials}`
-        }
-    }).then(res => {
-        return res.json();
-    });
+export function getChatsUpdate () {
+  return window.fetch(chatsUrl, {
+    headers: {
+      Authorization: `Basic ${window.sessionStorage.credentials}`
+    }
+  }).then(res => {
+    return res.json()
+  })
 }

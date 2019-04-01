@@ -1,8 +1,7 @@
-import { checkSession } from './session'
+import { checkSession, storeCredentials } from './session'
 import { createAndDisplayPopup } from './createPPopup'
 import { enableInputsAndButton, disableInputsAndButton } from './utils'
 import { loginExistingUser } from './API/usersAPI'
-import { storeCredentials } from './session'
 
 checkSession()
 
@@ -28,7 +27,6 @@ function notValid (inputs) {
 }
 
 function validateAndLogin (inputs) {
-
   const username = document.getElementById('username')
   const password = document.getElementById('password')
 

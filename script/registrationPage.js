@@ -1,8 +1,7 @@
-import { checkSession } from './session'
+import { checkSession, storeCredentials } from './session'
 import { enableInputsAndButton, disableInputsAndButton } from './utils'
 import { registerNewUser } from './API/usersAPI'
 import { createAndDisplayPopup } from './createPPopup'
-import { storeCredentials } from './session'
 
 checkSession()
 
@@ -67,5 +66,4 @@ function validateAndRegister (inputs, username, passwordOne, passwordTwo) {
   } else {
     highlightEmptyFields()
   }
-
 }

@@ -1,6 +1,8 @@
 import { getUserStatus } from './userStatus'
 import { enableInputsAndButton, disableInputsAndButton } from './utils'
-import {runMessageUpdateService} from './updatesService'
+import { runMessageUpdateService } from './updatesService'
+import { sendMessage } from './API/messagesAPI'
+import { printChatMessages } from './chatMessages'
 
 document.querySelector('.message-window input').addEventListener('keypress', function (event) {
   if (event.charCode === 13) {
@@ -16,12 +18,12 @@ document.querySelector('.message-window .message-button').addEventListener('clic
 export function toggleMessageInput () {
   let messageWindow = document.querySelector('.message-window')
 
-  if (!sessionStorage.chatContextId) {
+  if (!window.sessionStorage.chatContextId) {
     messageWindow.classList.add('hidden')
   } else {
     messageWindow.classList.remove('hidden')
 
-    getUserStatus(sessionStorage.chatContextId) === 'offline' ? disableInputsAndButton(messageWindow) : enableInputsAndButton(messageWindow)
+    getUserStatus(window.sessionStorage.chatContextId) === 'offline' ? disableInputsAndButton(messageWindow) : enableInputsAndButton(messageWindow)
   }
 }
 

@@ -1,10 +1,10 @@
-let pingUrl = 'https://ernestthebest.herokuapp.com/ping'
+import { pingUrl } from './endpoints'
 
-function ping() {
-    return fetch(pingUrl, {
-        method: 'POST',
-        headers: {
-            Authorization: `Basic ${window.sessionStorage.credentials}`
-        }
-    });
+export function ping () {
+  return window.fetch(pingUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${window.sessionStorage.credentials}`
+    }
+  })
 }

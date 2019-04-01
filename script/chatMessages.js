@@ -1,11 +1,12 @@
 import { getUserStatus } from './userStatus'
 import { updateSpanStatus } from './utils'
+import { getMessages } from './API/messagesAPI'
 
 let contentWindow = document.querySelector('.content-window')
 
 function createMessageElement (message) {
   let chatMessage = document.createElement('div')
-  let isMyMessage = message.sender_id == sessionStorage.userId
+  let isMyMessage = message.sender_id == window.sessionStorage.userId
   let userStatus = isMyMessage ? 'online' : getUserStatus(message.sender_id)
   let messageDate = new Date(message.created_at)
   // {message: "Ho are you", sender_id: 2, recipient_id: 4, created_at: "2019-02-06T19:24:23.372Z"}
@@ -16,7 +17,7 @@ function createMessageElement (message) {
   messageInfo.classList.add('message-info')
 
   let span = document.createElement('span')
-  isMyMessage ? span.textContent = 'You, ' : span.textContent = sessionStorage.chatContextName + ', '
+  isMyMessage ? span.textContent = 'You, ' : span.textContent = window.sessionStorage.chatContextName + ', '
   span.classList.add('status', `status-${userStatus}`)
 
   let time = document.createElement('time')
@@ -74,7 +75,7 @@ export function updateMessagesListStatuses () {
   let incomingMessages = contentWindow.querySelectorAll('.incoming span')
   if (incomingMessages.length) {
     incomingMessages.forEach(e => {
-      updateSpanStatus(e, sessionStorage.chatContextId)
+      updateSpanStatus(e, window.sessionStorage.chatContextId)
     })
   }
 }

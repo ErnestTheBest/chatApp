@@ -3,12 +3,16 @@ import { setChatContextNameAndStatus } from './chatContext'
 import { toggleMessageInput } from './chatMessageInput'
 import { printChatMessages } from './chatMessages'
 import { launchMessageUpdateService } from './updatesService'
+import { getUserStatus } from './userStatus'
+import { addContact, removeContact, getContactsList } from './API/contactsAPI'
+import { getAllUsersList } from './API/usersAPI'
+import { updateSpanStatus } from './utils'
 
 let contactsList = document.querySelector('.contacts-list')
 
 export function addListContact (contactId, username, name = undefined, isFavorite = false) {
 
-  if (sessionStorage.userId == contactId) return
+  if (window.sessionStorage.userId == contactId) return
 
   let element = document.createElement('li')
   let span = document.createElement('span')
@@ -101,38 +105,37 @@ function setActiveContact (elem) {
   launchMessageUpdateService()
 
   // Close mobile menu
-  menuButton.classList.remove('toggle')
-  container.classList.remove('menu-open')
+  document.querySelector('.menu-button').classList.remove('toggle')
+  document.querySelector('.container').classList.remove('menu-open')
 
   // Clear input and redefine contacts list
-  searchInput.value = ''
+  document.querySelector('.search-input input').value = ''
   // how to handle promises?
   defineContactList()
 }
 
-function defineContactList () {
+export function defineContactList () {
   getContactsList().then(res => {
     if (!res.data.length) {
-      return getAllUsersList().then(res => {return createContactList(res.data)})
+      return getAllUsersList().then(res => { return createContactList(res.data) })
     } else { return createContactList(res.data, true) }
-
   }).then(() => {
-    if (sessionStorage.chatContextId) {
+    if (window.sessionStorage.chatContextId) {
       // TODO: This will be bugged if last open chat was with someone not in contact list
-      let elem = document.querySelector(`[data-id="${sessionStorage.chatContextId}"]`)
+      let elem = document.querySelector(`[data-id="${window.sessionStorage.chatContextId}"]`)
       console.log(elem)
       elem.classList.add('active-contact')
     }
   })
 }
 
-function updateContactsListStatuses () {
+export function updateContactsListStatuses () {
   contactsList.querySelectorAll('li').forEach(e => {
     updateSpanStatus(e.querySelector('span'), e.getAttribute('data-id'))
   })
 }
 
-function markNewMessages (userIdsArr) {
+export function markNewMessages (userIdsArr) {
   for (const newMessageUserId of userIdsArr) {
     // <span class="new-message"></span>
     let elem = document.querySelector(`[data-id="${newMessageUserId}"]`)

@@ -1,31 +1,31 @@
-let contactsUrl = `https://ernestthebest.herokuapp.com/users/${sessionStorage.userId}/contacts`;
+import { contactsUrl } from './endpoints'
 
-function getContactsList() {
-    return fetch(contactsUrl, {
-        headers: {
-            Authorization: `Basic ${sessionStorage.credentials}`
-        }
-    }).then(res => {
-        return res.json()
-    });
+export function getContactsList () {
+  return window.fetch(contactsUrl, {
+    headers: {
+      Authorization: `Basic ${window.sessionStorage.credentials}`
+    }
+  }).then(res => {
+    return res.json()
+  })
 }
 
-function addContact(contactId) {
-    return fetch(contactsUrl, {
-        method: 'POST',
-        headers: {
-            Authorization: `Basic ${sessionStorage.credentials}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 'id': parseInt(contactId) })
-    });
+export function addContact (contactId) {
+  return window.fetch(contactsUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${window.sessionStorage.credentials}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'id': parseInt(contactId) })
+  })
 }
 
-function removeContact(contactId) {
-    return fetch(contactsUrl + '/' + contactId, {
-        method: 'DELETE',
-        headers: {
-            Authorization: `Basic ${sessionStorage.credentials}`,
-        }
-    });
+export function removeContact (contactId) {
+  return window.fetch(contactsUrl + '/' + contactId, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Basic ${window.sessionStorage.credentials}`
+    }
+  })
 }

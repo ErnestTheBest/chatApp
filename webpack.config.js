@@ -3,7 +3,8 @@ module.exports = {
   entry: {
     login: './script/loginPage.js',
     register: './script/registrationPage.js',
-    profile: './script/profilePage.js'
+    profile: './script/profilePage.js',
+    chat: './script/chat.js'
   },
   module: {
     rules: [
