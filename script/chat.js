@@ -3,8 +3,7 @@ import { defineContactList } from './contacts'
 import { setChatContextNameAndStatus } from './chatContext'
 import { clearChatMessages, printChatMessages } from './chatMessages'
 import { toggleMessageInput } from './chatMessageInput'
-import { pingPong } from './API/ping'
-import { runUserStatusUpdateService, runNewMessagesUpdateService, launchMessageUpdateService, runUserStatusService } from './updatesService'
+import { runUserStatusUpdateService, runNewMessagesUpdateService, launchMessageUpdateService, runUserStatusService, pingPong } from './updatesService'
 
 checkSession()
 
