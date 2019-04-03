@@ -1,4 +1,4 @@
-let defaultUrl = 'https://ernestthebest.herokuapp.com'
+import { defaultUrl } from './endpoints'
 
 export function getAllUsersList () {
   return window.fetch(`${defaultUrl}/users`, {
@@ -16,7 +16,7 @@ export function registerNewUser (userName, pass) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ username: userName, password: pass })
+    body: JSON.stringify({username: userName, password: pass})
   }).then(res => {
     return res.json()
   })
@@ -29,7 +29,7 @@ export function updateUserProfile (name, password = undefined) {
       Authorization: `Basic ${window.sessionStorage.credentials}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name, password })
+    body: JSON.stringify({name, password})
   }).then(res => {
     return res.ok
   })

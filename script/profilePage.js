@@ -66,7 +66,7 @@ function updateProfile () {
 }
 
 function populateForm (userLogin, displayName) {
-  getLoggedInUserInfo().then(({ data }) => {
+  getLoggedInUserInfo().then(({data}) => {
     console.log(data)
     userLogin.textContent = data.username
     if (data.name) displayName.value = data.name

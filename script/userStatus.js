@@ -3,9 +3,9 @@ export function mapUserStatuses (users) {
   let userStatuses = []
 
   /**
-     * Users example
-     * {id: 4, username: "eeee", name: null, seen_at: "2019-02-13T19:51:24.913Z"}
-     */
+   * Users example
+   * {id: 4, username: "eeee", name: null, seen_at: "2019-02-13T19:51:24.913Z"}
+   */
   for (const user of users) {
     if (user.seen_at) {
       let lastActive = now - new Date(user.seen_at)
@@ -28,10 +28,10 @@ export function mapUserStatuses (users) {
 export function getUserStatus (userId) {
   let userStatuses = JSON.parse(window.sessionStorage.userStatuses)
   /**
-     * UserStatuses is an array in sessionstorage {id : "status"}
-     * So I iterate through array of users, and if ID ([0]) matches with passed
-     * Return strung with status ([1])
-     */
+   * UserStatuses is an array in sessionstorage {id : "status"}
+   * So I iterate through array of users, and if ID ([0]) matches with passed
+   * Return strung with status ([1])
+   */
 
   for (const user of userStatuses) {
     if (userId == user[0]) {
