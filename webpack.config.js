@@ -1,10 +1,12 @@
+const copyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
-    login: './script/loginPage.js',
-    register: './script/registrationPage.js',
-    profile: './script/profilePage.js',
-    chat: './script/chat.js'
+    login: './src/script/loginPage.js',
+    register: './src/script/registrationPage.js',
+    profile: './src/script/profilePage.js',
+    chat: './src/script/chat.js'
   },
   module: {
     rules: [
@@ -19,5 +21,27 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devServer: {
+    contentBase: 'dist'
+  },
+  plugins: [
+    new copyWebpackPlugin([
+      {
+        from: './src/index.html'
+      },
+      {
+        from: './src/register.html'
+      },
+      {
+        from: './src/chat.html'
+      },
+      {
+        from: './src/profile.html'
+      },
+      {
+        from: './src/styles', to: 'styles'
+      }
+    ])
+  ]
 }
