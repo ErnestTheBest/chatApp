@@ -27,6 +27,7 @@ export function mapUserStatuses (users) {
 
 export function getUserStatus (userId) {
   let userStatuses = JSON.parse(window.sessionStorage.userStatuses)
+  userId = parseInt(userId)
   /**
    * UserStatuses is an array in sessionstorage {id : "status"}
    * So I iterate through array of users, and if ID ([0]) matches with passed
@@ -34,7 +35,7 @@ export function getUserStatus (userId) {
    */
 
   for (const user of userStatuses) {
-    if (userId == user[0]) {
+    if (userId === user[0]) {
       return user[1]
     }
   }

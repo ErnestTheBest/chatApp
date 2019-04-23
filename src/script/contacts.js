@@ -11,8 +11,7 @@ import { updateSpanStatus } from './utils'
 let contactsList = document.querySelector('.contacts-list')
 
 export function addListContact (contactId, username, name = undefined, isFavorite = false) {
-
-  if (window.sessionStorage.userId == contactId) return
+  if (parseInt(window.sessionStorage.userId) === contactId) return
 
   let element = document.createElement('li')
   let span = document.createElement('span')

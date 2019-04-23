@@ -11,6 +11,13 @@ module.exports = {
   module: {
     rules: [
       {
+        // set up standard-loader as a preloader
+        enforce: 'pre',
+        test: /\.js?$/,
+        loader: 'standard-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {

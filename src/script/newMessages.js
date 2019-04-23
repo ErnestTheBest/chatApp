@@ -5,7 +5,7 @@ import { getAllUsersList } from './API/usersAPI'
 let latestMessageUpdate = {}
 
 // Store initial state if messages on startup
-getChatsUpdate().then(({data}) => {
+getChatsUpdate().then(({ data }) => {
   console.log(data)
   data.filter(e => e.created_at !== null)
     .forEach(element => {
@@ -25,7 +25,7 @@ export function checkNewMessages () {
       contactIds[element.getAttribute('data-id')] = Date.now()
     })
 
-  getChatsUpdate().then(({data}) => {
+  getChatsUpdate().then(({ data }) => {
     let result = {}
 
     // Filter all contacts that messaged us
@@ -52,7 +52,7 @@ export function checkNewMessages () {
     })
 
     if (newUsers.length) {
-      getAllUsersList().then(({data}) => {
+      getAllUsersList().then(({ data }) => {
         data.forEach(e => {
           if (newUsers.includes(e.id)) {
             addListContact(e.id, e.username, e.name)

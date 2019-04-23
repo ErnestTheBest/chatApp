@@ -6,7 +6,7 @@ let contentWindow = document.querySelector('.content-window')
 
 function createMessageElement (message) {
   let chatMessage = document.createElement('div')
-  let isMyMessage = message.sender_id == window.sessionStorage.userId
+  let isMyMessage = message.sender_id === parseInt(window.sessionStorage.userId)
   let userStatus = isMyMessage ? 'online' : getUserStatus(message.sender_id)
   let messageDate = new Date(message.created_at)
   // {message: "Ho are you", sender_id: 2, recipient_id: 4, created_at: "2019-02-06T19:24:23.372Z"}

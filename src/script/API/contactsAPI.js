@@ -17,7 +17,7 @@ export function addContact (contactId) {
       Authorization: `Basic ${window.sessionStorage.credentials}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({'id': parseInt(contactId)})
+    body: JSON.stringify({ 'id': parseInt(contactId) })
   })
 }
 

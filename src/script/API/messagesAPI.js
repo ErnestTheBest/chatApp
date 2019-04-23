@@ -1,4 +1,4 @@
-import { defaultUrl} from './endpoints'
+import { defaultUrl } from './endpoints'
 
 export function sendMessage (messageText) {
   return window.fetch(`${defaultUrl}/users/${window.sessionStorage.userId}/contacts/${window.sessionStorage.chatContextId}/messages`, {
@@ -7,7 +7,7 @@ export function sendMessage (messageText) {
       Authorization: `Basic ${window.sessionStorage.credentials}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({message: messageText})
+    body: JSON.stringify({ message: messageText })
   }).then(res => {
     return res.json()
   })

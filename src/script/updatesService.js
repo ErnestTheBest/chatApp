@@ -39,7 +39,7 @@ export function runMessageUpdateService () {
     try {
       if (res.data.length) {
         let lastMessageTime = document.querySelector('.content-window').lastChild.querySelector('time').dateTime
-        if (res.data[0].created_at != lastMessageTime) printChatMessages()
+        if (res.data[0].created_at !== lastMessageTime) printChatMessages()
       }
     } catch (error) {
       console.log('Something went wrong in messageUpdateService')
