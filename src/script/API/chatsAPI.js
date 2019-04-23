@@ -1,7 +1,7 @@
-import { chatsUrl } from './endpoints'
+import { defaultUrl } from './endpoints'
 
 export function getChatsUpdate () {
-  return window.fetch(chatsUrl, {
+  return window.fetch(`${defaultUrl}/users/${window.sessionStorage.userId}/chats`, {
     headers: {
       Authorization: `Basic ${window.sessionStorage.credentials}`
     }

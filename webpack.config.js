@@ -25,6 +25,7 @@ module.exports = {
   devServer: {
     contentBase: 'dist'
   },
+  devtool: 'cheap-source-map',
   plugins: [
     new copyWebpackPlugin([
       {

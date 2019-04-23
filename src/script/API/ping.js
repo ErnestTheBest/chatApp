@@ -1,7 +1,7 @@
-import { pingUrl } from './endpoints'
+import { defaultUrl } from './endpoints'
 
 export function ping () {
-  return window.fetch(pingUrl, {
+  return window.fetch(`${defaultUrl}/ping`, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${window.sessionStorage.credentials}`
