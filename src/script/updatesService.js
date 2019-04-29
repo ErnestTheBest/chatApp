@@ -9,11 +9,11 @@ import { updateContactsListStatuses } from './contacts'
 import { updateChatContextStatus } from './chatContext'
 
 let runningServices = {
-  'pingPongService': false,
-  'userStatusService': false,
-  'userStatusUpdateService': false,
-  'messagesUpdateService': false,
-  'newMessagesUpdateService': false
+  pingPongService: false,
+  userStatusService: false,
+  userStatusUpdateService: false,
+  messagesUpdateService: false,
+  newMessagesUpdateService: false
 }
 let messageServicePolled = false
 

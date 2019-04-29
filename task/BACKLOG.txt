@@ -36,4 +36,5 @@
 * Html, Body, Container 100% for mobile version
 
 ----- BUG -----
+* If user chat is open and he goes offline, chat is not disabled
 * Buttons must not move around. Align them to fixed positions.
