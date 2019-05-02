@@ -1,10 +1,5 @@
-import { defaultUrl } from './endpoints'
+import { doRequest } from './fetchWrapper'
 
 export function ping () {
-  return window.fetch(`${defaultUrl}/ping`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${window.sessionStorage.credentials}`
-    }
-  })
+  return doRequest('POST', 'ping')
 }

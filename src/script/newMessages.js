@@ -5,9 +5,8 @@ import { getAllUsersList } from './API/usersAPI'
 let latestMessageUpdate = {}
 
 // Store initial state if messages on startup
-getChatsUpdate().then(({ data }) => {
-  console.log(data)
-  data.filter(e => e.created_at !== null)
+getChatsUpdate().then(result => {
+  return result.data.filter(e => e.created_at !== null)
     .forEach(element => {
       latestMessageUpdate[element.user_id] = +new Date(element.created_at)
     })
