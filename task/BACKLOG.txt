@@ -36,5 +36,6 @@
 * Html, Body, Container 100% for mobile version
 
 ----- BUG -----
+* If active user is removed, there is no user to highlight. Console logs error
 * If user chat is open and he goes offline, chat is not disabled
 * Buttons must not move around. Align them to fixed positions.

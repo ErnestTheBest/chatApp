@@ -10,6 +10,7 @@ import {
   runUserStatusService,
   pingPong
 } from './updatesService'
+import { initContactsSearch } from './searchContacts'
 
 checkSession()
 
@@ -23,6 +24,8 @@ document.getElementById('logout').addEventListener('click', logout)
 function initChat () {
   runUserStatusService()
   defineContactList()
+
+  initContactsSearch()
 
   setChatContextNameAndStatus()
   clearChatMessages()
