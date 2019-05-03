@@ -1,31 +1,13 @@
-import { defaultUrl } from './endpoints'
+import { doRequest } from './fetchWrapper'
 
 export function getContactsList () {
-  return window.fetch(`${defaultUrl}/users/${window.sessionStorage.userId}/contacts`, {
-    headers: {
-      Authorization: `Basic ${window.sessionStorage.credentials}`
-    }
-  }).then(res => {
-    return res.json()
-  })
+  return doRequest('GET', `users/${window.sessionStorage.userId}/contacts`)
 }
 
 export function addContact (contactId) {
-  return window.fetch(`${defaultUrl}/users/${window.sessionStorage.userId}/contacts`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${window.sessionStorage.credentials}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ 'id': parseInt(contactId) })
-  })
+  return doRequest('POST', `users/${window.sessionStorage.userId}/contacts`, { id: parseInt(contactId) })
 }
 
 export function removeContact (contactId) {
-  return window.fetch(`${defaultUrl}/users/${window.sessionStorage.userId}/contacts` + '/' + contactId, {
-    method: 'DELETE',
-    headers: {
-      Authorization: `Basic ${window.sessionStorage.credentials}`
-    }
-  })
+  return doRequest('DELETE', `users/${window.sessionStorage.userId}/contacts/${contactId}`)
 }
