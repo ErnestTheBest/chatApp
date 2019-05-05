@@ -39,3 +39,8 @@
 * If active user is removed, there is no user to highlight. Console logs error
 * If user chat is open and he goes offline, chat is not disabled
 * Buttons must not move around. Align them to fixed positions.
+
+----- FEEDBACK -----
+https://github.com/ErnestTheBest/chatApp/blob/master/src/script/updatesService.js#L41 - service is not a service; services should not know anything about the DOM. your service should trigger some abstract callbacks
+https://github.com/ErnestTheBest/chatApp/blob/master/src/script/userStatus.js - use object instead of array e.g. {1: 'online', 2: 'offline'}
+refactor Chat screen to use classes (OOP) instead of functions - ask your questions
