@@ -6,7 +6,8 @@ module.exports = {
     login: './src/script/loginPage.js',
     register: './src/script/registrationPage.js',
     profile: './src/script/profilePage.js',
-    chat: './src/script/chat.js'
+    chat: './src/script/chat.js',
+    ts: './playground/some.ts'
   },
   module: {
     rules: [
@@ -26,7 +27,15 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader'
+        }
       }
+
     ]
   },
   devServer: {
