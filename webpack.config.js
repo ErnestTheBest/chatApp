@@ -7,6 +7,7 @@ module.exports = {
     register: './src/script/registrationPage.js',
     profile: './src/script/profilePage.js',
     chat: './src/script/chat.js',
+    tsprofile: './src/script/profile.ts',
     ts: './playground/some.ts'
   },
   module: {
