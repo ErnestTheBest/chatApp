@@ -1,6 +1,6 @@
 export class InputField {
-    id: string;
-    type: string;
+    private readonly id: string;
+    private readonly type: string;
 
     constructor(id: string, type: string) {
         this.id = id;

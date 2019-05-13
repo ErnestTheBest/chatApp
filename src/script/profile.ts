@@ -2,60 +2,83 @@ import {checkSession} from './session'
 import {createAndDisplayPopup} from './createPPopup'
 import {enableInputsAndButton, disableInputsAndButton} from './utils'
 import {getLoggedInUserInfo, updateUserProfile} from './API/usersAPI'
-import {InputField} from "./components/InputFieldComponent";
+import {InputField} from "./components/InputFieldComponent.ts";
+import {ButtonComponent} from "./components/ButtonComponent.ts";
+import {LabelComponent} from "./components/LabelComponent.ts";
 
 class ProfilePage {
-    private checkSession;
     private parentElement: HTMLElement;
 
-    constructor(checkSession, parentElement: HTMLElement) {
-        this.checkSession = checkSession;
+    constructor(parentElement: HTMLElement) {
         this.parentElement = parentElement;
-        this.render()
+        this.render();
+        this.populateForm();
+        this.addEventListeners();
         // this.attachEventListeners()
         // this.doSOmethingElse()
     }
 
-    public render() {
+    private render() {
         const formElement = document.createElement('form');
         formElement.action = ('#');
 
-        const label = document.createElement('label');
-        const paragraph = document.createElement('p');
-        const button = document.createElement('button');
-
-        label.appendChild(document.createTextNode('Login'));
-        formElement.appendChild(label.cloneNode(true));
-
-        paragraph.id = 'userLogin';
-        formElement.appendChild(paragraph);
-
-        label.innerText = 'Display name';
-        label.setAttribute('for', 'display-name');
-        formElement.appendChild(label.cloneNode(true));
-
         const input = new InputField('display-name', 'text');
+        const saveButton = new ButtonComponent('save-button', 'Save');
+        const cancelButton = new ButtonComponent('cancel', 'Cancel');
+        const loginLabel = new LabelComponent( 'Login');
+        const displayNameLabel = new LabelComponent( 'Display name', 'display-name');
+        const loginParagraph = document.createElement('p');
+        loginParagraph.id = 'user-login';
+
+        formElement.appendChild(loginLabel.createElement());
+        formElement.appendChild(loginParagraph);
+        formElement.appendChild(displayNameLabel.createElement());
         formElement.appendChild(input.createElement());
-
-        button.id = 'sign-in';
-        button.type = 'submit';
-        button.innerText = 'Save';
-        formElement.appendChild(button);
-
-        button.id = 'cancel';
-        button.innerText = 'Cancel';
-        button.removeAttribute('type');
-        formElement.appendChild(button);
+        formElement.appendChild(saveButton.createElement());
+        formElement.appendChild(cancelButton.createElement());
 
         this.parentElement.appendChild(formElement);
     }
+
+    private addEventListeners() {
+        document.getElementById('cancel').addEventListener('click', (event) => {
+            event.preventDefault();
+            ProfilePage.redirectToChat();
+        });
+
+        document.addEventListener('submit', (event) => {
+            event.preventDefault();
+            ProfilePage.updateProfile();
+        });
+    }
+
+    private populateForm() {
+        getLoggedInUserInfo().then(({data}) => {
+            document.getElementById('user-login').textContent = data.username;
+            if (data.name) {
+                let input = <HTMLInputElement>document.getElementById('display-name');
+                input.value = data.name;
+            }
+        });
+    }
+
+    private static updateProfile() {
+        disableInputsAndButton(document.querySelector('form'));
+        const input = <HTMLInputElement>document.getElementById('display-name');
+        updateUserProfile(input.value).then(() => {
+            createAndDisplayPopup('Display name changed', '#82df1b');
+            window.setTimeout(() => ProfilePage.redirectToChat(), 1500);
+        });
+        enableInputsAndButton(document.querySelector('form'));
+    }
+
+    private static redirectToChat() {
+        window.location.replace('./chat.html');
+    }
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded. Loading script');
-    foo();
+    checkSession();
+    new ProfilePage(document.getElementById('center'));
 });
-
-function foo() {
-    new ProfilePage(checkSession, document.getElementById('center'))
-}
