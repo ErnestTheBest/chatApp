@@ -2,6 +2,7 @@ import {checkSession} from './session'
 import {createAndDisplayPopup} from './createPPopup'
 import {enableInputsAndButton, disableInputsAndButton} from './utils'
 import {getLoggedInUserInfo, updateUserProfile} from './API/usersAPI'
+import {InputField} from "./components/InputFieldComponent";
 
 class ProfilePage {
     private checkSession;
@@ -21,7 +22,6 @@ class ProfilePage {
 
         const label = document.createElement('label');
         const paragraph = document.createElement('p');
-        const input = document.createElement('input');
         const button = document.createElement('button');
 
         label.appendChild(document.createTextNode('Login'));
@@ -34,9 +34,8 @@ class ProfilePage {
         label.setAttribute('for', 'display-name');
         formElement.appendChild(label.cloneNode(true));
 
-        input.id = 'display-name';
-        input.type = 'text';
-        formElement.appendChild(input);
+        const input = new InputField('display-name', 'text');
+        formElement.appendChild(input.createElement());
 
         button.id = 'sign-in';
         button.type = 'submit';
