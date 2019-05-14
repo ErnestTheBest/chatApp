@@ -2,9 +2,9 @@ import {checkSession} from './session'
 import {createAndDisplayPopup} from './createPPopup'
 import {enableInputsAndButton, disableInputsAndButton} from './utils'
 import {getLoggedInUserInfo, updateUserProfile} from './API/usersAPI'
-import {InputField} from "./components/InputFieldComponent.ts";
-import {ButtonComponent} from "./components/ButtonComponent.ts";
-import {LabelComponent} from "./components/LabelComponent.ts";
+import {inputFieldComponent} from "./components/common/InputFieldComponent";
+import {buttonComponent} from "./components/common/ButtonComponent";
+import {labelComponent} from "./components/common/LabelComponent";
 
 class ProfilePage {
     private parentElement: HTMLElement;
@@ -22,20 +22,15 @@ class ProfilePage {
         const formElement = document.createElement('form');
         formElement.action = ('#');
 
-        const input = new InputField('display-name', 'text');
-        const saveButton = new ButtonComponent('save-button', 'Save');
-        const cancelButton = new ButtonComponent('cancel', 'Cancel');
-        const loginLabel = new LabelComponent( 'Login');
-        const displayNameLabel = new LabelComponent( 'Display name', 'display-name');
         const loginParagraph = document.createElement('p');
         loginParagraph.id = 'user-login';
 
-        formElement.appendChild(loginLabel.createElement());
+        formElement.appendChild(labelComponent('Login'));
         formElement.appendChild(loginParagraph);
-        formElement.appendChild(displayNameLabel.createElement());
-        formElement.appendChild(input.createElement());
-        formElement.appendChild(saveButton.createElement());
-        formElement.appendChild(cancelButton.createElement());
+        formElement.appendChild(labelComponent('Display name', 'display-name'));
+        formElement.appendChild(inputFieldComponent('display-name', 'text'));
+        formElement.appendChild(buttonComponent('save-button', 'Save'));
+        formElement.appendChild(buttonComponent('cancel', 'Cancel'));
 
         this.parentElement.appendChild(formElement);
     }
@@ -56,7 +51,7 @@ class ProfilePage {
         getLoggedInUserInfo().then(({data}) => {
             document.getElementById('user-login').textContent = data.username;
             if (data.name) {
-                let input = <HTMLInputElement>document.getElementById('display-name');
+                let input = document.getElementById('display-name') as HTMLInputElement;
                 input.value = data.name;
             }
         });
@@ -64,7 +59,7 @@ class ProfilePage {
 
     private static updateProfile() {
         disableInputsAndButton(document.querySelector('form'));
-        const input = <HTMLInputElement>document.getElementById('display-name');
+        const input = document.getElementById('display-name') as HTMLInputElement;
         updateUserProfile(input.value).then(() => {
             createAndDisplayPopup('Display name changed', '#82df1b');
             window.setTimeout(() => ProfilePage.redirectToChat(), 1500);

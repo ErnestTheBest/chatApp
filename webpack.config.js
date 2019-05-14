@@ -10,6 +10,9 @@ module.exports = {
     tsprofile: './src/script/profile.ts',
     ts: './playground/some.ts'
   },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
   module: {
     rules: [
       {
