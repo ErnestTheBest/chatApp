@@ -1,10 +1,10 @@
-import {checkSession} from './session'
-import {createAndDisplayPopup} from './createPPopup'
-import {enableInputsAndButton, disableInputsAndButton} from './utils'
-import {getLoggedInUserInfo, updateUserProfile} from './API/usersAPI'
-import {inputFieldComponent} from "./components/common/InputFieldComponent";
-import {buttonComponent} from "./components/common/ButtonComponent";
-import {labelComponent} from "./components/common/LabelComponent";
+import { checkSession } from './session'
+import { createAndDisplayPopup } from './createPPopup'
+import { enableInputsAndButton, disableInputsAndButton } from './utils'
+import { getLoggedInUserInfo, updateUserProfile } from './API/usersAPI'
+import { inputFieldComponent } from './components/common/InputFieldComponent';
+import { buttonComponent } from './components/common/ButtonComponent';
+import { labelComponent } from './components/common/LabelComponent';
 
 class ProfilePage {
     private parentElement: HTMLElement;
@@ -14,8 +14,6 @@ class ProfilePage {
         this.render();
         this.populateForm();
         this.addEventListeners();
-        // this.attachEventListeners()
-        // this.doSOmethingElse()
     }
 
     private render() {
@@ -72,7 +70,7 @@ class ProfilePage {
     }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Loaded. Loading script');
     checkSession();
     new ProfilePage(document.getElementById('center'));

@@ -3,12 +3,10 @@ const copyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
-    login: './src/script/loginPage.js',
     register: './src/script/registrationPage.js',
-    profile: './src/script/profilePage.js',
     chat: './src/script/chat.js',
-    tsprofile: './src/script/profile.ts',
-    ts: './playground/some.ts'
+    profile: './src/script/profile.ts',
+    login: './src/script/login.ts'
   },
   resolve: {
     extensions: ['.ts', '.js']
