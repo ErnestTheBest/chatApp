@@ -3,7 +3,7 @@ const copyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
-    register: './src/script/registrationPage.js',
+    register: './src/script/register.ts',
     chat: './src/script/chat.js',
     profile: './src/script/profile.ts',
     login: './src/script/login.ts'

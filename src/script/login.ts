@@ -1,11 +1,12 @@
 import { checkSession, storeCredentials } from './session'
 import { createAndDisplayPopup } from './createPPopup'
-import { enableInputsAndButton, disableInputsAndButton } from './utils'
+import { disableInputsAndButton, enableInputsAndButton } from './utils'
 import { loginExistingUser } from './API/usersAPI'
 import { hyperlinkComponent } from './components/common/HyperlinkComponent';
 import { labelComponent } from './components/common/LabelComponent';
 import { inputFieldComponent } from './components/common/InputFieldComponent';
 import { buttonComponent } from './components/common/ButtonComponent';
+import { InputFieldType } from './components/enums/inputFieldType';
 
 class LoginPage {
     private parentElement: HTMLElement;
@@ -22,9 +23,9 @@ class LoginPage {
 
         formElement.action = '#';
         formElement.appendChild(labelComponent('Username', 'username'));
-        formElement.appendChild(inputFieldComponent('username', 'text'));
+        formElement.appendChild(inputFieldComponent('username', InputFieldType.text));
         formElement.appendChild(labelComponent('Password', 'password'));
-        formElement.appendChild(inputFieldComponent('password', 'password'));
+        formElement.appendChild(inputFieldComponent('password', InputFieldType.password));
         formElement.appendChild(buttonComponent('sign-in', 'Sign in'));
 
         this.parentElement.appendChild(formElement);

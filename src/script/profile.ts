@@ -1,10 +1,11 @@
 import { checkSession } from './session'
 import { createAndDisplayPopup } from './createPPopup'
-import { enableInputsAndButton, disableInputsAndButton } from './utils'
+import { disableInputsAndButton, enableInputsAndButton } from './utils'
 import { getLoggedInUserInfo, updateUserProfile } from './API/usersAPI'
 import { inputFieldComponent } from './components/common/InputFieldComponent';
 import { buttonComponent } from './components/common/ButtonComponent';
 import { labelComponent } from './components/common/LabelComponent';
+import { InputFieldType } from './components/enums/inputFieldType';
 
 class ProfilePage {
     private parentElement: HTMLElement;
@@ -26,7 +27,7 @@ class ProfilePage {
         formElement.appendChild(labelComponent('Login'));
         formElement.appendChild(loginParagraph);
         formElement.appendChild(labelComponent('Display name', 'display-name'));
-        formElement.appendChild(inputFieldComponent('display-name', 'text'));
+        formElement.appendChild(inputFieldComponent('display-name', InputFieldType.text));
         formElement.appendChild(buttonComponent('save-button', 'Save'));
         formElement.appendChild(buttonComponent('cancel', 'Cancel'));
 

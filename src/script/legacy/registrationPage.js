@@ -1,7 +1,7 @@
-import { checkSession, storeCredentials } from './session'
-import { enableInputsAndButton, disableInputsAndButton } from './utils'
-import { registerNewUser } from './API/usersAPI'
-import { createAndDisplayPopup } from './createPPopup'
+import { checkSession, storeCredentials } from '../session'
+import { enableInputsAndButton, disableInputsAndButton } from '../utils'
+import { registerNewUser } from '../API/usersAPI'
+import { createAndDisplayPopup } from '../createPPopup'
 
 checkSession()
 
