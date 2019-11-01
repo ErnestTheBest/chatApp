@@ -1,5 +1,12 @@
 * When you search for contact and click on it, clear field and re-render all contacts list, with it selected
 
+----- TODO -----
+* Refactor fetch wrapper to TS
+* Refactor Chat.js to TS
+
+----- BUGS -----
+* When user comes online, the input in chat is disabled
+
 ----- FANCY -----
 * Sort contacts alphabetically(Comparator)
 * Seemless message updates (not re-rendering all page)

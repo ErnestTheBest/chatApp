@@ -1,5 +1,5 @@
 export function checkSession () {
-  let pathname = window.location.pathname
+  const pathname = window.location.pathname
   if (!window.sessionStorage.getItem('userId')) {
     if (pathname.includes('/index.html') || pathname.includes('/register.html')) {
 

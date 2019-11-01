@@ -1,1 +1,1 @@
-export let defaultUrl = 'https://ernestthebest.herokuapp.com'
+export const defaultUrl = 'https://ernestthebest.herokuapp.com'

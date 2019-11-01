@@ -18,14 +18,14 @@ getChatsUpdate().then(result => {
 
 export function checkNewMessages () {
   // Get all user ids that are in my contacts list. Timestamp is redundant. Just wanned to practice with objects
-  let contactIds = {}
+  const contactIds = {}
   document.querySelectorAll('.contacts-list li').forEach(
     function (element) {
       contactIds[element.getAttribute('data-id')] = Date.now()
     })
 
   getChatsUpdate().then(({ data }) => {
-    let result = {}
+    const result = {}
 
     // Filter all contacts that messaged us
     data.filter(e => e.created_at !== null)
@@ -33,16 +33,16 @@ export function checkNewMessages () {
         result[+element.user_id] = +new Date(element.created_at)
       })
 
-    let newMessages = []
-    let newUsers = []
+    const newMessages = []
+    const newUsers = []
 
     Object.entries(result).forEach(e => {
       // Filter every message
-      let [userId, createdAt] = e
+      const [userId, createdAt] = e
 
       // If contacts is all new or writen to use a new message and is not on contacts list
-      if (!latestMessageUpdate.hasOwnProperty(userId) ||
-        (latestMessageUpdate[`${userId}`] < createdAt && !contactIds.hasOwnProperty(userId))) {
+      if (!Object.prototype.hasOwnProperty.call(latestMessageUpdate, userId) ||
+        (latestMessageUpdate[`${userId}`] < createdAt && Object.prototype.hasOwnProperty.call(contactIds, userId))) {
         newMessages.push(parseInt(userId))
         newUsers.push(parseInt(userId))
       } else if (latestMessageUpdate[`${userId}`] < createdAt) {

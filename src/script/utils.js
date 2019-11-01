@@ -6,16 +6,16 @@ export function updateSpanStatus (elem, userId) {
 }
 
 export function enableInputsAndButton (parentElement) {
-  let inputs = parentElement.querySelectorAll('input')
-  let buttons = parentElement.querySelectorAll('button')
+  const inputs = parentElement.querySelectorAll('input')
+  const buttons = parentElement.querySelectorAll('button')
 
   inputs.forEach(inp => inp.removeAttribute('disabled'))
   buttons.forEach(btn => btn.removeAttribute('disabled'))
 }
 
 export function disableInputsAndButton (parentElement) {
-  let inputs = parentElement.querySelectorAll('input')
-  let buttons = parentElement.querySelectorAll('button')
+  const inputs = parentElement.querySelectorAll('input')
+  const buttons = parentElement.querySelectorAll('button')
 
   inputs.forEach(function (elem) {
     elem.disabled = true

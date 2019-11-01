@@ -15,12 +15,12 @@ export function initContactsSearch () {
 }
 
 function findContacts () {
-  let inputValue = document.querySelector('.search-input input').value
+  const inputValue = document.querySelector('.search-input input').value
   if (inputValue) {
     getAllUsersList().then(res => {
       console.log(res)
-      let contactsArray = []
-      for (let contact of res.data) {
+      const contactsArray = []
+      for (const contact of res.data) {
         if (contact.username.includes(inputValue)) {
           contactsArray.push(contact)
         } else if (contact.name && contact.name.includes(inputValue)) {

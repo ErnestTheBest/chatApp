@@ -16,7 +16,7 @@ document.querySelector('.message-window .message-button').addEventListener('clic
 })
 
 export function toggleMessageInput () {
-  let messageWindow = document.querySelector('.message-window')
+  const messageWindow = document.querySelector('.message-window')
 
   if (!window.sessionStorage.chatContextId) {
     messageWindow.classList.add('hidden')
@@ -28,7 +28,7 @@ export function toggleMessageInput () {
 }
 
 function sendTextMessage () {
-  let messageWindowInput = document.querySelector('.message-window input')
+  const messageWindowInput = document.querySelector('.message-window input')
   if (messageWindowInput.value) {
     sendMessage(messageWindowInput.value).then(
       printChatMessages)

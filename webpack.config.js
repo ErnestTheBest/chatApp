@@ -1,4 +1,4 @@
-const copyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -45,7 +45,7 @@ module.exports = {
   },
   devtool: 'cheap-source-map',
   plugins: [
-    new copyWebpackPlugin([
+    new CopyWebpackPlugin([
       {
         from: './src/index.html'
       },

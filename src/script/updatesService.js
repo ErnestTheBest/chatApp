@@ -8,7 +8,7 @@ import { setUserStatuses } from './session'
 import { updateContactsListStatuses } from './contacts'
 import { updateChatContextStatus } from './chatContext'
 
-let runningServices = {
+const runningServices = {
   pingPongService: false,
   userStatusService: false,
   userStatusUpdateService: false,
@@ -38,7 +38,7 @@ export function runMessageUpdateService () {
   return getMessages().then(res => {
     try {
       if (res.data.length) {
-        let lastMessageTime = document.querySelector('.content-window').lastChild.querySelector('time').dateTime
+        const lastMessageTime = document.querySelector('.content-window').lastChild.querySelector('time').dateTime
         if (res.data[0].created_at !== lastMessageTime) printChatMessages()
       }
     } catch (error) {
